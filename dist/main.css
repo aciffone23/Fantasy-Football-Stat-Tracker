@@ -1,11 +1,50 @@
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
-#main > h1 {
-  border: 4px solid salmon;
-  padding: 20px;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-#main {
-  color: purple;
+#nav-bar {
+  right: 20px;
+  font-size: 30px;
+}
+
+.fab {
+  color: black;
+  padding: 8px 12px 8px 14px;
+  margin: 10px 10px;
+  border: 0.5px solid white;
+  border-radius: 5px;
+  background-color: white;
+  font-size: 40px; /* Increased font-size */
+}
+
+.fab:hover {
+  box-shadow: 0 0 10px rgba(150, 150, 150, 0.8);
+}
+
+#search-player {
+  display: flex;
+  align-items: center;
+}
+
+.form-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.form-container form {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.form-container form:last-child {
+  margin-right: 0;
 }
