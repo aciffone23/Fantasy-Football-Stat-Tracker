@@ -14,24 +14,24 @@
 
 // export default Example;
 // // fetching the data for the players 
-// var playerList;
+var playerList;
 
-// function getPlayerNames() {
-//   return new Promise((resolve, reject) => {
-//     fetch('https://www.fantasyfootballdatapros.com/api/players/2019/1')
-//       .then(response => response.json())
-//       .then(data => {
-//         if (!data) {
-//           reject(new Error('Unable to fetch player data'));
-//         }
-//         playerList = data;
-//         resolve(data);
-//       })
-//       .catch(error => reject(error));
-//   });
-// }
+function getPlayerNames() {
+  return new Promise((resolve, reject) => {
+    fetch('https://www.fantasyfootballdatapros.com/api/players/2019/1')
+      .then(response => response.json())
+      .then(data => {
+        if (!data) {
+          reject(new Error('Unable to fetch player data'));
+        }
+        playerList = data;
+        resolve(data);
+      })
+      .catch(error => reject(error));
+  });
+}
 
-// getPlayerNames()
+getPlayerNames()
 
 // // fetching stats for the player
 // playerList.find(f => f.player_name === "Lamar Jackson").stats
@@ -40,9 +40,9 @@
 // playerList.find(f => f.player_name === "Lamar Jackson").stats.passing.passing_yds
 
 
-// playerList.sort(function(a, b){
-//     return a.fantasy_points.ppr < b.fantasy_points.ppr ? 1 : a.fantasy_points.ppr > b.fantasy_points.ppr ? -1: 0;
-// }).filter(f => f.position === "QB");
+playerList.sort(function(a, b){
+    return a.fantasy_points.ppr < b.fantasy_points.ppr ? 1 : a.fantasy_points.ppr > b.fantasy_points.ppr ? -1: 0;
+}).filter(f => f.position === "QB");
 
 
     
