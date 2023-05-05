@@ -3,9 +3,9 @@ export default Filter
 
 var playerStats;
 
-function getPlayerNames() {
+function getPlayerNames(week) {
   return new Promise((resolve, reject) => {
-    fetch('https://www.fantasyfootballdatapros.com/api/players/2019/1')
+    fetch(`https://www.fantasyfootballdatapros.com/api/players/2019/${week}`)
       .then(response => response.json())
       .then(data => {
         if (!data) {
@@ -18,7 +18,7 @@ function getPlayerNames() {
   });
 }
 
-getPlayerNames().then(() => {
+getPlayerNames(week).then(() => {
 //   displayPlayerStats(playerStats);
   const qbSort = sortAndFilterByPosition("QB");
   displayPlayerStats(qbSort)
