@@ -39,20 +39,30 @@ function getPlayerNames(week) {
 // });
 
 function displayPlayerStats(filteredPlayers) {
+    const ul = document.createElement('ul');
     filteredPlayers.forEach(player => {
-        console.log(player.player_name); 
-        console.log(player.position); 
-        console.log(player.fantasy_points.ppr); 
-        console.log(player.stats.passing.passing_yds); 
-        console.log(player.stats.passing.passing_td); 
-        console.log(player.stats.passing.int); 
-        console.log(player.stats.rushing.rushing_att); 
-        console.log(player.stats.rushing.rushing_yds); 
-        console.log(player.stats.rushing.rushing_td); 
-        console.log(player.stats.receiving.receptions); 
-        console.log(player.stats.receiving.receiving_yds); 
-        console.log(player.stats.receiving.receiving_td); 
+        const li = document.createElement('li');
+        li.innerHTML = `
+        Player Name: ${player.player_name} <br>
+        Position: ${player.position} <br>
+        Fantasy Points (PPR): ${player.fantasy_points.ppr} <br>
+        Passing Yards: ${player.stats.passing.passing_yds} <br>
+        Passing TDs: ${player.stats.passing.passing_td} <br>
+        Interceptions: ${player.stats.passing.int} <br>
+        Rushing Attempts: ${player.stats.rushing.rushing_att} <br>
+        Rushing Yards: ${player.stats.rushing.rushing_yds} <br>
+        Rushing TDs: ${player.stats.rushing.rushing_td} <br>
+        Receptions: ${player.stats.receiving.receptions} <br>
+        Receiving Yards: ${player.stats.receiving.receiving_yds} <br>
+        Receiving TDs: ${player.stats.receiving.receiving_td} <br>
+      `; 
+      ul.appendChild(li);
+
     });
+    const container = document.getElementById('player-stats-container');
+    container.innerHTML = '';
+    container.appendChild(ul);
+
 }
 
 // function sortAndFilterByPosition(position) {
