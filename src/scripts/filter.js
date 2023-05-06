@@ -1,26 +1,21 @@
 
-
-
 var playerStats;
 
-// function getPlayerNames(week) {
-//   return new Promise((resolve, reject) => {
-//     fetch(`https://www.fantasyfootballdatapros.com/api/players/2019/${week}`)
-//       .then(response => response.json())
-//       .then(data => {
-//         if (!data) {
-//           reject(new Error('Unable to fetch player data'));
-//         }
-//         playerStats = data;
-//         resolve(data);
-//       })
-//       .catch(error => reject(error));
-//   });
-// }
+let searchedPlayers = [];
+
+function searchPlayerByName(playerData, playerName) {
+    return playerData.filter(player => {
+        const fullName = player.player_name.toLowerCase();
+        return fullName.includes(playerName.toLowerCase());
+    });
+}
 
 function getPlayerNames(week) {
+    const apiUrl = week === 'total'
+        ? `https://www.fantasyfootballdatapros.com/api/players/2019/all`
+        : `https://www.fantasyfootballdatapros.com/api/players/2019/${week}`;
     return new Promise((resolve, reject) => {
-      fetch(`https://www.fantasyfootballdatapros.com/api/players/2019/${week}`)
+      fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
           if (!data) {
@@ -31,12 +26,6 @@ function getPlayerNames(week) {
         .catch(error => reject(error));
     });
   }
-
-// getPlayerNames(week).then(() => {
-// //   displayPlayerStats(playerStats);
-//   const qbSort = sortAndFilterByPosition("QB");
-//   displayPlayerStats(qbSort)
-// });
 
 function displayPlayerStats(filteredPlayers) {
     const ul = document.createElement('ul');
@@ -65,12 +54,7 @@ function displayPlayerStats(filteredPlayers) {
 
 }
 
-// function sortAndFilterByPosition(position) {
-//   return playerStats.sort((a, b) => {
-//     return a.fantasy_points.ppr < b.fantasy_points.ppr ? 1 : a.fantasy_points.ppr > b.fantasy_points.ppr ? -1 : 0;
-//   }).filter(f => f.position === position);
-// //   .map(f => (displayPlayerStats(position)));
-// }
+
 
 function sortAndFilterByPosition(playerData, position) {
     return playerData.sort((a, b) => {
@@ -79,18 +63,40 @@ function sortAndFilterByPosition(playerData, position) {
 }
 
 
-document.getElementById('filter-btn').addEventListener('click', () => {
-    const weekSelect = document.getElementById('filter-by-week');
-    const positionSelect = document.getElementById('filter-by-position');
-  
-    const selectedWeek = weekSelect.value;
-    const selectedPosition = positionSelect.value;
-  
-    getPlayerNames(selectedWeek).then(playerData => {
-      const filteredPlayers = sortAndFilterByPosition(playerData, selectedPosition);
-      displayPlayerStats(filteredPlayers);
+window.onload = (event) => {
+    document.getElementById('filter-btn').addEventListener('click', () => {
+        const weekSelect = document.getElementById('filter-by-week');
+        const positionSelect = document.getElementById('filter-by-position');
+      
+        const selectedWeek = weekSelect.value;
+        const selectedPosition = positionSelect.value;
+      
+        if (searchedPlayers.length === 0) {
+            getPlayerNames(selectedWeek).then(playerData => {
+                const filteredPlayers = sortAndFilterByPosition(playerData, selectedPosition);
+                displayPlayerStats(filteredPlayers);
+            });
+        } else {
+            const filteredPlayers = sortAndFilterByPosition(searchedPlayers, selectedPosition);
+            displayPlayerStats(filteredPlayers);
+        }
     });
-  });
+    document.getElementById("search-player").addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const searchInput = document.getElementById("search-player-input");
+        const playerName = searchInput.value;
+
+        console.log("Player name:", playerName);
+
+        getPlayerNames("total").then((playerData) => {
+            searchedPlayers = searchPlayerByName(playerData, playerName);
+            displayPlayerStats(searchedPlayers);
+        });
+
+        searchInput.value = playerName;
+    });
+};
 
 
 
