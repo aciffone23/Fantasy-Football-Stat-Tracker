@@ -54,14 +54,25 @@ function displayPlayerStats(filteredPlayers) {
 
 }
 
-
-
 function sortAndFilterByPosition(playerData, position) {
-    return playerData.sort((a, b) => {
-      return a.fantasy_points.ppr < b.fantasy_points.ppr ? 1 : a.fantasy_points.ppr > b.fantasy_points.ppr ? -1 : 0;
-    }).filter(f => f.position === position);
-}
-
+    const validPositions = ["RB", "TE", "QB", "WR"];
+  
+    const sortedPlayerData = playerData
+      .filter(player => validPositions.includes(player.position))
+      .sort((a, b) => {
+        return a.fantasy_points.ppr < b.fantasy_points.ppr
+          ? 1
+          : a.fantasy_points.ppr > b.fantasy_points.ppr
+          ? -1
+          : 0;
+      });
+  
+    if (position === "All") { 
+      return sortedPlayerData;
+    }
+  
+    return sortedPlayerData.filter(f => f.position === position);
+  }
 
 window.onload = (event) => {
     document.getElementById('filter-btn').addEventListener('click', () => {
