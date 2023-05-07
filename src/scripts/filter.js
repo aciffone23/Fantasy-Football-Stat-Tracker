@@ -1,16 +1,19 @@
-
+import { playerModal } from './modals.js';
+//player stats variable
 var playerStats;
 
+//array to store searched players
 var searchedPlayers = [];
 
-
+//filter players by name and return array
 function searchPlayerByName(playerData, playerName) {
     return playerData.filter(player => {
-        const fullName = player.player_name.toLowerCase();
+        let fullName = player.player_name.toLowerCase();
         return fullName.includes(playerName.toLowerCase());
     });
 }
 
+//fetch all data from season
 async function getSeasonData() {
     const seasonData = [];
     
@@ -19,6 +22,7 @@ async function getSeasonData() {
       const weekData = await fetch(weekApiUrl).then(response => response.json());
     
       weekData.forEach(weekPlayer => {
+        //check if player is already in season data if so add stats to exist data
         const seasonPlayer = seasonData.find(p => p.player_name === weekPlayer.player_name);
         if (seasonPlayer) {
           seasonPlayer.fantasy_points.ppr += weekPlayer.fantasy_points.ppr;
@@ -40,24 +44,22 @@ async function getSeasonData() {
     return seasonData;
   }
   
-
+  //fetch data for week or season
   async function getPlayerNames(week) {
-    debugger;
   if (week === 'total') {
     const seasonData = await getSeasonData();
-    const filteredPlayers = sortAndFilterByPosition(seasonData, 'All');
-    return filteredPlayers;
+    return sortAndFilterByPosition(seasonData, 'All');
   } else {
     const apiUrl = `https://www.fantasyfootballdatapros.com/api/players/2019/${week}`;
     return fetch(apiUrl).then(response => response.json());
   }
 }
-
+//display stats in table
 function displayPlayerStats(filteredPlayers) {
+    //create table add class player-stats-table
     const table = document.createElement('table');
     table.classList.add('player-stats-table');
 
-    // create table header
     const tableHeader = table.createTHead();
     const tableHeaderRow = tableHeader.insertRow();
     const tableHeaderCells = ['Player Name', 'Position', 'Fantasy Points (PPR)', 'Passing Yards', 'Passing TDs', 'Interceptions', 'Rushing Attempts', 'Rushing Yards', 'Rushing TDs', 'Receptions', 'Receiving Yards', 'Receiving TDs'];
@@ -66,7 +68,7 @@ function displayPlayerStats(filteredPlayers) {
         cell.textContent = tableHeaderCells[i];
         tableHeaderRow.appendChild(cell);
     }
-
+    //create body for the table with player stats
     const tableBody = table.createTBody();
     filteredPlayers.forEach(player => {
         const row = tableBody.insertRow();
@@ -76,18 +78,19 @@ function displayPlayerStats(filteredPlayers) {
             const cell = row.insertCell();
             cell.textContent = cells[i];
         }
+        row.cells[0].classList.add("player-name-cell");
+        row.cells[0].style.cursor = "pointer";
+        row.cells[0].addEventListener("click", () => playerModal(player));
     });
-
+    
     const container = document.getElementById('player-stats-container');
     container.innerHTML = '';
     container.appendChild(table);
 }
 
-
+//filter data by position sort by ppr
 function sortAndFilterByPosition(playerData, position) {
     const validPositions = ["RB", "TE", "QB", "WR"];
-    debugger;
-    let filteredData;
 
     const sortedPlayerData = playerData
       .filter(player => validPositions.includes(player.position))
@@ -105,7 +108,7 @@ function sortAndFilterByPosition(playerData, position) {
   
     return sortedPlayerData.filter(f => f.position === position);
 }
-
+//setup event listeners
 window.onload = (event) => {
     document.getElementById('filter-button').addEventListener('click', () => {
 
@@ -114,7 +117,6 @@ window.onload = (event) => {
       
         const selectedWeek = weekSelect.value;
         const selectedPosition = positionSelect.value;       
-        debugger;
         if (searchedPlayers.length === 0) {
             getPlayerNames(selectedWeek).then(playerData => {
                 const filteredPlayers = sortAndFilterByPosition(playerData, selectedPosition);
@@ -122,7 +124,6 @@ window.onload = (event) => {
             });
         } else {
             getPlayerNames(selectedWeek).then(playerData => {
-                debugger;
                 var searchedNames = searchedPlayers.map(f => f.player_name);
                 var searchedPlayerObjects = playerData.filter(f => searchedNames.includes(f.player_name));
                 const filteredPlayers = sortAndFilterByPosition(searchedPlayerObjects, selectedPosition);
