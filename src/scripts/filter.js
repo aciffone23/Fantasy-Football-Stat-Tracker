@@ -42,6 +42,7 @@ async function getSeasonData() {
   
 
   async function getPlayerNames(week) {
+    debugger;
   if (week === 'total') {
     const seasonData = await getSeasonData();
     const filteredPlayers = sortAndFilterByPosition(seasonData, 'All');
@@ -66,12 +67,10 @@ function displayPlayerStats(filteredPlayers) {
         tableHeaderRow.appendChild(cell);
     }
 
-    // create table body
     const tableBody = table.createTBody();
     filteredPlayers.forEach(player => {
         const row = tableBody.insertRow();
 
-        // add player data to table cells
         const cells = [player.player_name, player.position, player.fantasy_points.ppr.toFixed(2), player.stats.passing.passing_yds, player.stats.passing.passing_td, player.stats.passing.int, player.stats.rushing.rushing_att, player.stats.rushing.rushing_yds, player.stats.rushing.rushing_td, player.stats.receiving.receptions, player.stats.receiving.receiving_yds, player.stats.receiving.receiving_td];
         for (let i = 0; i < cells.length; i++) {
             const cell = row.insertCell();
@@ -79,7 +78,6 @@ function displayPlayerStats(filteredPlayers) {
         }
     });
 
-    // add the table to the container
     const container = document.getElementById('player-stats-container');
     container.innerHTML = '';
     container.appendChild(table);
@@ -88,15 +86,10 @@ function displayPlayerStats(filteredPlayers) {
 
 function sortAndFilterByPosition(playerData, position) {
     const validPositions = ["RB", "TE", "QB", "WR"];
-
+    debugger;
     let filteredData;
 
-    if (searchedPlayers.length > 0) {
-    filteredData = searchedPlayers;
-    } else {
-    filteredData = playerData;
-    }
-    const sortedPlayerData = filteredData
+    const sortedPlayerData = playerData
       .filter(player => validPositions.includes(player.position))
       .sort((a, b) => {
         return a.fantasy_points.ppr < b.fantasy_points.ppr
@@ -115,20 +108,26 @@ function sortAndFilterByPosition(playerData, position) {
 
 window.onload = (event) => {
     document.getElementById('filter-button').addEventListener('click', () => {
+
         const weekSelect = document.getElementById('filter-by-week');
         const positionSelect = document.getElementById('filter-by-position');
       
         const selectedWeek = weekSelect.value;
-        const selectedPosition = positionSelect.value;
-      
+        const selectedPosition = positionSelect.value;       
+        debugger;
         if (searchedPlayers.length === 0) {
             getPlayerNames(selectedWeek).then(playerData => {
                 const filteredPlayers = sortAndFilterByPosition(playerData, selectedPosition);
                 displayPlayerStats(filteredPlayers);
             });
         } else {
-            const filteredPlayers = sortAndFilterByPosition(searchedPlayers, selectedPosition);
-            displayPlayerStats(filteredPlayers);
+            getPlayerNames(selectedWeek).then(playerData => {
+                debugger;
+                var searchedNames = searchedPlayers.map(f => f.player_name);
+                var searchedPlayerObjects = playerData.filter(f => searchedNames.includes(f.player_name));
+                const filteredPlayers = sortAndFilterByPosition(searchedPlayerObjects, selectedPosition);
+                displayPlayerStats(filteredPlayers);
+            });
         }
     });
     document.getElementById("search-player").addEventListener("submit", (event) => {
