@@ -8,6 +8,7 @@
         <link href="./dist/main.css" rel="stylesheet">
         <script src="./dist/main.js"></script>
         <script src="./src/scripts/filter.js"></script>
+        <script src="./src/scripts/modal.js"></script>
 
         
     </head>
@@ -15,8 +16,9 @@
         <div class="header">
             <h1>Fantasy Football Stat Tracker</h1>
             <nav>
-              <a target="_blank" href="https://github.com/aciffone23"><i class="fab fa-github-square"></i></a>
-              <a target="_blank" href="https://www.linkedin.com/in/angelo-ciffone-8a8645248/"><i class="fab fa-linkedin"></i></a>
+                <a id="info-modal"><i class="fas fa-info-circle"></i></a>
+                <a target="_blank" href="https://github.com/aciffone23"><i class="fab fa-github-square"></i></a>
+                <a target="_blank" href="https://www.linkedin.com/in/angelo-ciffone-8a8645248/"><i class="fab fa-linkedin"></i></a>
             </nav>
         </div>
         
@@ -66,7 +68,7 @@
                 </label>
             </form>
 
-            <button id="filter-btn">Filter</button>
+            <button id="filter-button">Filter</button>
         </div>
         
         <div id="player-stats-container"></div>

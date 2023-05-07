@@ -107,7 +107,7 @@ function sortAndFilterByPosition(playerData, position) {
 }
 
 window.onload = (event) => {
-    document.getElementById('filter-btn').addEventListener('click', () => {
+    document.getElementById('filter-button').addEventListener('click', () => {
         const weekSelect = document.getElementById('filter-by-week');
         const positionSelect = document.getElementById('filter-by-position');
       
