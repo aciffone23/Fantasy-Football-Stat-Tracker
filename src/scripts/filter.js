@@ -53,31 +53,38 @@ async function getSeasonData() {
 }
 
 function displayPlayerStats(filteredPlayers) {
-    const ul = document.createElement('ul');
-    filteredPlayers.forEach(player => {
-        const li = document.createElement('li');
-        li.innerHTML = `
-        Player Name: ${player.player_name} <br>
-        Position: ${player.position} <br>
-        Fantasy Points (PPR): ${player.fantasy_points.ppr} <br>
-        Passing Yards: ${player.stats.passing.passing_yds} <br>
-        Passing TDs: ${player.stats.passing.passing_td} <br>
-        Interceptions: ${player.stats.passing.int} <br>
-        Rushing Attempts: ${player.stats.rushing.rushing_att} <br>
-        Rushing Yards: ${player.stats.rushing.rushing_yds} <br>
-        Rushing TDs: ${player.stats.rushing.rushing_td} <br>
-        Receptions: ${player.stats.receiving.receptions} <br>
-        Receiving Yards: ${player.stats.receiving.receiving_yds} <br>
-        Receiving TDs: ${player.stats.receiving.receiving_td} <br>
-      `; 
-      ul.appendChild(li);
+    const table = document.createElement('table');
+    table.classList.add('player-stats-table');
 
+    // create table header
+    const tableHeader = table.createTHead();
+    const tableHeaderRow = tableHeader.insertRow();
+    const tableHeaderCells = ['Player Name', 'Position', 'Fantasy Points (PPR)', 'Passing Yards', 'Passing TDs', 'Interceptions', 'Rushing Attempts', 'Rushing Yards', 'Rushing TDs', 'Receptions', 'Receiving Yards', 'Receiving TDs'];
+    for (let i = 0; i < tableHeaderCells.length; i++) {
+        const cell = document.createElement('th');
+        cell.textContent = tableHeaderCells[i];
+        tableHeaderRow.appendChild(cell);
+    }
+
+    // create table body
+    const tableBody = table.createTBody();
+    filteredPlayers.forEach(player => {
+        const row = tableBody.insertRow();
+
+        // add player data to table cells
+        const cells = [player.player_name, player.position, player.fantasy_points.ppr.toFixed(2), player.stats.passing.passing_yds, player.stats.passing.passing_td, player.stats.passing.int, player.stats.rushing.rushing_att, player.stats.rushing.rushing_yds, player.stats.rushing.rushing_td, player.stats.receiving.receptions, player.stats.receiving.receiving_yds, player.stats.receiving.receiving_td];
+        for (let i = 0; i < cells.length; i++) {
+            const cell = row.insertCell();
+            cell.textContent = cells[i];
+        }
     });
+
+    // add the table to the container
     const container = document.getElementById('player-stats-container');
     container.innerHTML = '';
-    container.appendChild(ul);
-
+    container.appendChild(table);
 }
+
 
 function sortAndFilterByPosition(playerData, position) {
     const validPositions = ["RB", "TE", "QB", "WR"];

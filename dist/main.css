@@ -57,7 +57,7 @@
   border: 0.5px solid white;
   border-radius: 5px;
   background-color: white;
-  font-size: 40px; /* Increase font-size to 50px */
+  font-size: 40px;
 }
 
 #info-modal:hover {
@@ -111,4 +111,35 @@
 
 .modal.show .modal-content {
   margin-top: 10%;
+}
+
+.player-stats-table th,
+.player-stats-table td {
+  border: 1px solid #d3d3d3;
+  padding: 8px;
+  text-align: center;
+  border-bottom: none;
+}
+
+.player-stats-table th {
+  background-color: #f4f4f4;
+  border: 1px solid #d3d3d3;
+  border-bottom: none;
+}
+
+.player-stats-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.player-stats-table tr:hover {
+  background-color: #e9ecef;
+}
+
+.player-stats-table tr {
+  border-bottom: 1px solid #d3d3d3;
+}
+
+.player-stats-table tr:last-child td,
+.player-stats-table tr:last-child th {
+  border-bottom: 1px solid #d3d3d3;
 }
