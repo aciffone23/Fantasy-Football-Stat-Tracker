@@ -16,7 +16,6 @@ function searchPlayerByName(playerData, playerName) {
 //fetch all data from season
 async function getSeasonData() {
     const seasonData = [];
-    
     for (let w = 1; w <= 17; w++) {
       const weekApiUrl = `https://www.fantasyfootballdatapros.com/api/players/2019/${w}`;
       const weekData = await fetch(weekApiUrl).then(response => response.json());
@@ -59,7 +58,6 @@ function displayPlayerStats(filteredPlayers) {
     //create table add class player-stats-table
     const table = document.createElement('table');
     table.classList.add('player-stats-table');
-
     const tableHeader = table.createTHead();
     const tableHeaderRow = tableHeader.insertRow();
     const tableHeaderCells = ['Player Name', 'Position', 'Fantasy Points (PPR)', 'Passing Yards', 'Passing TDs', 'Interceptions', 'Rushing Attempts', 'Rushing Yards', 'Rushing TDs', 'Receptions', 'Receiving Yards', 'Receiving TDs'];
@@ -72,7 +70,6 @@ function displayPlayerStats(filteredPlayers) {
     const tableBody = table.createTBody();
     filteredPlayers.forEach(player => {
         const row = tableBody.insertRow();
-
         const cells = [player.player_name, player.position, player.fantasy_points.ppr.toFixed(2), player.stats.passing.passing_yds, player.stats.passing.passing_td, player.stats.passing.int, player.stats.rushing.rushing_att, player.stats.rushing.rushing_yds, player.stats.rushing.rushing_td, player.stats.receiving.receptions, player.stats.receiving.receiving_yds, player.stats.receiving.receiving_td];
         for (let i = 0; i < cells.length; i++) {
             const cell = row.insertCell();
@@ -91,7 +88,6 @@ function displayPlayerStats(filteredPlayers) {
 //filter data by position sort by ppr
 function sortAndFilterByPosition(playerData, position) {
     const validPositions = ["RB", "TE", "QB", "WR"];
-
     const sortedPlayerData = playerData
       .filter(player => validPositions.includes(player.position))
       .sort((a, b) => {
@@ -109,9 +105,8 @@ function sortAndFilterByPosition(playerData, position) {
     return sortedPlayerData.filter(f => f.position === position);
 }
 //setup event listeners
-window.onload = (event) => {
+window.onload = () => {
     document.getElementById('filter-button').addEventListener('click', () => {
-
         const weekSelect = document.getElementById('filter-by-week');
         const positionSelect = document.getElementById('filter-by-position');
       
@@ -133,11 +128,8 @@ window.onload = (event) => {
     });
     document.getElementById("search-player").addEventListener("submit", (event) => {
         event.preventDefault();
-
         const searchInput = document.getElementById("search-player-input");
         const playerName = searchInput.value;
-
-        console.log("Player name:", playerName);
 
         getPlayerNames("total").then((playerData) => {
             searchedPlayers = searchPlayerByName(playerData, playerName);

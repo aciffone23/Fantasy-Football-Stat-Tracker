@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  function playerModal(player) {
+    function playerModal(player) {
     const modal = document.getElementById("player-modal");
     const modalContent = modal.querySelector(".modal-content");
     
@@ -127,6 +127,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   export { playerModal };
+
+  
+  
 
  
   
