@@ -1,3 +1,4 @@
+import { lineChart } from "./lineChart.js";
 //info modal 
 document.addEventListener('DOMContentLoaded', () => {
     const infoModal = document.getElementById('info-modal');
@@ -30,9 +31,21 @@ document.addEventListener('DOMContentLoaded', () => {
     function playerModal(player) {
     const modal = document.getElementById("player-modal");
     const modalContent = modal.querySelector(".modal-content");
-    
+    debugger
     let categoryHTML = ''
-
+    let currentPlayerName = player.stats.receiving.receiving_yds
+    let currentPlayerPts = player.fantasy_points.ppr.toFixed(2)
+    const dataset = [
+      {
+        week: currentPlayerName,
+        value: currentPlayerPts
+      },
+      {
+        week: currentPlayerName,
+        value: currentPlayerPts
+      },
+    ];
+    // lineChart(dataset)
     if (player.position === 'QB') {
     categoryHTML = `
       <tr>
@@ -124,6 +137,12 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.style.display = "none";
       }
     };
+
+    const lineChartContainer = document.createElement("div");
+    lineChartContainer.id = "line-chart-container";
+    modalContent.appendChild(lineChartContainer);
+    lineChart(dataset);
+
   }
 
   export { playerModal };
