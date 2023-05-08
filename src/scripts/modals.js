@@ -35,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let categoryHTML = ''
 
     const dataset = player.weekData
-    // lineChart(dataset)
     if (player.position === 'QB') {
     categoryHTML = `
       <tr>

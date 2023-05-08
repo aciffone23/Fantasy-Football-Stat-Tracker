@@ -8,12 +8,15 @@ export function lineChart(data) {
     const x = d3
       .scaleLinear()
       .range([0, width])
-      .domain(d3.extent(data, (d) => d.week));
-  
+      .domain(d3.extent(data, (d) => {
+        console.log(d.week,d.value);
+        return d.week;
+    }));
+
     const y = d3
       .scaleLinear()
       .range([height, 0])
-      .domain([0, d3.max(data, (d) => d.value)]);
+      .domain([0, 55]);
   
     const svg = d3
       .select("#line-chart-container")
