@@ -33,18 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalContent = modal.querySelector(".modal-content");
     debugger
     let categoryHTML = ''
-    let currentPlayerName = player.stats.receiving.receiving_yds
-    let currentPlayerPts = player.fantasy_points.ppr.toFixed(2)
-    const dataset = [
-      {
-        week: currentPlayerName,
-        value: currentPlayerPts
-      },
-      {
-        week: currentPlayerName,
-        value: currentPlayerPts
-      },
-    ];
+
+    const dataset = player.weekData
     // lineChart(dataset)
     if (player.position === 'QB') {
     categoryHTML = `

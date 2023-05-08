@@ -23,19 +23,27 @@ async function getSeasonData() {
       weekData.forEach(weekPlayer => {
         //check if player is already in season data if so add stats to exist data
         const seasonPlayer = seasonData.find(p => p.player_name === weekPlayer.player_name);
+        const currentPlayerPts = weekPlayer.fantasy_points.ppr.toFixed(2);
+        const weekData = {
+            week: w,
+            value: currentPlayerPts
+          };
         if (seasonPlayer) {
-          seasonPlayer.fantasy_points.ppr += weekPlayer.fantasy_points.ppr;
-          seasonPlayer.stats.passing.passing_yds += weekPlayer.stats.passing.passing_yds;
-          seasonPlayer.stats.passing.passing_td += weekPlayer.stats.passing.passing_td;
-          seasonPlayer.stats.passing.int += weekPlayer.stats.passing.int;
-          seasonPlayer.stats.rushing.rushing_att += weekPlayer.stats.rushing.rushing_att;
-          seasonPlayer.stats.rushing.rushing_yds += weekPlayer.stats.rushing.rushing_yds;
-          seasonPlayer.stats.rushing.rushing_td += weekPlayer.stats.rushing.rushing_td;
-          seasonPlayer.stats.receiving.receptions += weekPlayer.stats.receiving.receptions;
-          seasonPlayer.stats.receiving.receiving_yds += weekPlayer.stats.receiving.receiving_yds;
-          seasonPlayer.stats.receiving.receiving_td += weekPlayer.stats.receiving.receiving_td;
+            seasonPlayer.fantasy_points.ppr += weekPlayer.fantasy_points.ppr;
+            seasonPlayer.stats.passing.passing_yds += weekPlayer.stats.passing.passing_yds;
+            seasonPlayer.stats.passing.passing_td += weekPlayer.stats.passing.passing_td;
+            seasonPlayer.stats.passing.int += weekPlayer.stats.passing.int;
+            seasonPlayer.stats.rushing.rushing_att += weekPlayer.stats.rushing.rushing_att;
+            seasonPlayer.stats.rushing.rushing_yds += weekPlayer.stats.rushing.rushing_yds;
+            seasonPlayer.stats.rushing.rushing_td += weekPlayer.stats.rushing.rushing_td;
+            seasonPlayer.stats.receiving.receptions += weekPlayer.stats.receiving.receptions;
+            seasonPlayer.stats.receiving.receiving_yds += weekPlayer.stats.receiving.receiving_yds;
+            seasonPlayer.stats.receiving.receiving_td += weekPlayer.stats.receiving.receiving_td;
+            seasonPlayer.weekData.push(weekData);
+
         } else {
-          seasonData.push(weekPlayer);
+            weekPlayer.weekData = [weekData];
+            seasonData.push(weekPlayer);
         }
       });
     }
