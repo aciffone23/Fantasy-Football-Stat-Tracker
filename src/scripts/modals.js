@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let categoryHTML = ''
 
     const dataset = player.weekData
+    
     if (player.position === 'QB') {
     categoryHTML = `
       <tr>

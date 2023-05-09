@@ -24,10 +24,12 @@ async function getSeasonData() {
         //check if player is already in season data if so add stats to exist data
         const seasonPlayer = seasonData.find(p => p.player_name === weekPlayer.player_name);
         const currentPlayerPts = weekPlayer.fantasy_points.ppr.toFixed(2);
+        
         const weekData = {
             week: w,
             value: currentPlayerPts
-          };
+        };
+
         if (seasonPlayer) {
             seasonPlayer.fantasy_points.ppr += weekPlayer.fantasy_points.ppr;
             seasonPlayer.stats.passing.passing_yds += weekPlayer.stats.passing.passing_yds;
@@ -112,28 +114,31 @@ function sortAndFilterByPosition(playerData, position) {
   
     return sortedPlayerData.filter(f => f.position === position);
 }
+
+function filterbuttonEventListener(){
+    const weekSelect = document.getElementById('filter-by-week');
+    const positionSelect = document.getElementById('filter-by-position');
+  
+    const selectedWeek = weekSelect.value;
+    const selectedPosition = positionSelect.value;       
+    if (searchedPlayers.length === 0) {
+        getPlayerNames(selectedWeek).then(playerData => {
+            const filteredPlayers = sortAndFilterByPosition(playerData, selectedPosition);
+            displayPlayerStats(filteredPlayers);
+        });
+    } else {
+        getPlayerNames(selectedWeek).then(playerData => {
+            var searchedNames = searchedPlayers.map(f => f.player_name);
+            var searchedPlayerObjects = playerData.filter(f => searchedNames.includes(f.player_name));
+            const filteredPlayers = sortAndFilterByPosition(searchedPlayerObjects, selectedPosition);
+            displayPlayerStats(filteredPlayers);
+        });
+    }
+}
 //setup event listeners
 window.onload = () => {
-    document.getElementById('filter-button').addEventListener('click', () => {
-        const weekSelect = document.getElementById('filter-by-week');
-        const positionSelect = document.getElementById('filter-by-position');
-      
-        const selectedWeek = weekSelect.value;
-        const selectedPosition = positionSelect.value;       
-        if (searchedPlayers.length === 0) {
-            getPlayerNames(selectedWeek).then(playerData => {
-                const filteredPlayers = sortAndFilterByPosition(playerData, selectedPosition);
-                displayPlayerStats(filteredPlayers);
-            });
-        } else {
-            getPlayerNames(selectedWeek).then(playerData => {
-                var searchedNames = searchedPlayers.map(f => f.player_name);
-                var searchedPlayerObjects = playerData.filter(f => searchedNames.includes(f.player_name));
-                const filteredPlayers = sortAndFilterByPosition(searchedPlayerObjects, selectedPosition);
-                displayPlayerStats(filteredPlayers);
-            });
-        }
-    });
+    filterbuttonEventListener();
+    document.getElementById('filter-button').addEventListener('click', filterbuttonEventListener);
     document.getElementById("search-player").addEventListener("submit", (event) => {
         event.preventDefault();
         const searchInput = document.getElementById("search-player-input");
