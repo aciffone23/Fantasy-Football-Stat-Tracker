@@ -7,6 +7,9 @@ var searchedPlayers = [];
 
 var allSeasonData = []
 
+export var topPlayerWeeklyData = [];
+
+
 //filter players by name and return array
 function searchPlayerByName(playerData, playerName) {
     return playerData.filter(player => {
@@ -17,7 +20,7 @@ function searchPlayerByName(playerData, playerName) {
 
 //fetch all data from season
 async function getSeasonData() {
-    let topPlayerWeeklyData = [];
+    let topPts = [];
     let position = ["QB", "RB", "WR", "TE"];
     const seasonData = [];
     for (let w = 1; w <= 17; w++) {
@@ -39,15 +42,15 @@ async function getSeasonData() {
                 week: w,
                 value: fixedPts
             };
-            debugger
-            console.log(topPlayersByWeek)
-            console.log(weekPlayer.position)
-            console.log(currentPlayerPts)
-            debugger
+            // debugger
+            // console.log(topPlayersByWeek)
+            // console.log(weekPlayer.position)
+            // console.log(currentPlayerPts)
+            // debugger
             if (position.includes(weekPlayer.position) && currentPlayerPts >= topPlayersByWeek[weekPlayer.position].value) {
-                console.log(currentPlayerPts);
-                console.log(weekPlayer.position)
-                debugger
+                // console.log(currentPlayerPts);
+                // console.log(weekPlayer.position);
+                // debugger
                 // topPlayersByWeek[weekPlayer.position].week = w;
                 topPlayersByWeek[weekPlayer.position].value = fixedPts;
             }
@@ -71,10 +74,12 @@ async function getSeasonData() {
             }
         });
         topPlayerWeeklyData.push(topPlayersByWeek);
+        // console.log(topPlayerWeeklyData)
     }
-    console.log(topPlayerWeeklyData);
+
+    // console.log(topPlayerWeeklyData);
     allSeasonData = seasonData;
-    // console.log(seasonData)
+    topPlayerWeeklyData = topPlayerWeeklyData;
     return seasonData;
 }
   
@@ -82,7 +87,6 @@ async function getSeasonData() {
   async function getPlayerNames(week) {
   if (week === 'total') {
     const seasonData = await getSeasonData();
-    // console.log(topPlayersByWeek)
     return sortAndFilterByPosition(seasonData, 'All');
   } else {
     const apiUrl = `https://www.fantasyfootballdatapros.com/api/players/2019/${week}`;
@@ -179,6 +183,7 @@ window.onload = () => {
         searchInput.value = playerName;
     });
 };
+
 
 
 
