@@ -20,35 +20,36 @@ async function getSeasonData() {
     let topPlayerWeeklyData = [];
     let position = ["QB", "RB", "WR", "TE"];
     const seasonData = [];
-    let topPlayersByWeek = {
-        QB: { week: 0, value: 0 },
-        RB: { week: 0, value: 0 },
-        WR: { week: 0, value: 0 },
-        TE: { week: 0, value: 0 }
-    };
     for (let w = 1; w <= 17; w++) {
+        let topPlayersByWeek = {
+            QB: { week: w, value: 0 },
+            RB: { week: w, value: 0 },
+            WR: { week: w, value: 0 },
+            TE: { week: w, value: 0 }
+        };
       const weekApiUrl = `https://www.fantasyfootballdatapros.com/api/players/2019/${w}`;
       const weekData = await fetch(weekApiUrl).then(response => response.json());
     
         weekData.forEach(weekPlayer => {
             //check if player is already in season data if so add stats to exist data
             const seasonPlayer = seasonData.find(p => p.player_name === weekPlayer.player_name);
-            let currentPlayerPts = weekPlayer.fantasy_points.ppr.toFixed(2);
-            
+            let currentPlayerPts = weekPlayer.fantasy_points.ppr
+            let fixedPts = weekPlayer.fantasy_points.ppr.toFixed(2);
             const weekData = {
                 week: w,
-                value: currentPlayerPts
+                value: fixedPts
             };
-            // debugger
-            // console.log(topPlayersByWeek)
-            // console.log(weekPlayer.position)
             debugger
-            if (position.includes(weekPlayer.position) && currentPlayerPts > topPlayersByWeek[weekPlayer.position].value) {
+            console.log(topPlayersByWeek)
+            console.log(weekPlayer.position)
+            console.log(currentPlayerPts)
+            debugger
+            if (position.includes(weekPlayer.position) && currentPlayerPts >= topPlayersByWeek[weekPlayer.position].value) {
                 console.log(currentPlayerPts);
                 console.log(weekPlayer.position)
                 debugger
-                topPlayersByWeek[weekPlayer.position].week = w;
-                topPlayersByWeek[weekPlayer.position].value = currentPlayerPts;
+                // topPlayersByWeek[weekPlayer.position].week = w;
+                topPlayersByWeek[weekPlayer.position].value = fixedPts;
             }
 
             if (seasonPlayer) {

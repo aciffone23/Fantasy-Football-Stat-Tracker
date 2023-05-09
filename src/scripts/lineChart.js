@@ -35,7 +35,7 @@ export function lineChart(data) {
       .append("path")
       .datum(data)
       .attr("fill", "none")
-      .attr("stroke", "black")
+      .attr("stroke", "red")
       .attr("stroke-width", 2)
       .attr("d", line);
   
