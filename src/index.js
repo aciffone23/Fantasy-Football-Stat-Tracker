@@ -35,7 +35,7 @@ window.onload = () => {
         const playerName = searchInput.value;
 
         getPlayerNames("total").then((playerData) => {
-            searchedPlayers = searchPlayerByName(playerData, playerName);
+            let searchedPlayers = searchPlayerByName(playerData, playerName);
             displayPlayerStats(searchedPlayers);
         });
 
@@ -73,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function playerModal(player) {
     const modal = document.getElementById("player-modal");
+    modal.classList.add('player-modal');
     const modalContent = modal.querySelector(".modal-content");
     debugger
     let categoryHTML = ''
@@ -164,7 +165,7 @@ function playerModal(player) {
             <h5>${player.fantasy_points.ppr.toFixed(2)}</h5>
         </div>
     </div>
-    <h5 class="season-stats-heading">Season Stats:</h5>
+    <h2 class="season-stats-heading">Season Stats:</h2>
     <div id="line-chart-container"></div>
     <div class="stat-container">
         <table class="modal-stats-table">

@@ -19,61 +19,69 @@
     </head>
     <body>
         <div class="header">
-            <h1>Fantasy Football Stat Tracker</h1>
-            <nav>
+            <h1>Performance Playbook</h1>
+            <!-- <nav>
                 <a id="info-modal"><i class="fas fa-info-circle"></i></a>
                 <a target="_blank" href="https://github.com/aciffone23"><i class="fab fa-github-square"></i></a>
                 <a target="_blank" href="https://www.linkedin.com/in/angelo-ciffone-8a8645248/"><i class="fab fa-linkedin"></i></a>
             </nav>
-        </div>
-        
-        <div class="form-container">
-            <form id="search-player">
-                <label>Search Player:
-                <br />
-                    <input id="search-player-input" type="text"/>
-                </label>
-                <input type="submit" value="Search" />
-            </form>
+        </div> -->
+            <nav>
+                <div class="form-container">
+                    <form id="search-player">
+                        <label>Search Player:
+                            <br />
+                            <input id="search-player-input" type="text"/>
+                        </label>
+                        <input type="submit" value="Search" />
+                    </form>
 
-            <form id="filter-by-pos">
-                <label>Filter By Position:
-                    <select id="filter-by-position">
-                        <option value="All">All</option>
-                        <option value="QB">QB</option>
-                        <option value="RB">RB</option>
-                        <option value="WR">WR</option>
-                        <option value="TE">TE</option>
-                    </select>
-                </label>
-            </form>
+                    <form id="filter-by-pos">
+                        <label>Filter By Position:
+                            <select id="filter-by-position">
+                                <option value="All">All</option>
+                                <option value="QB">QB</option>
+                                <option value="RB">RB</option>
+                                <option value="WR">WR</option>
+                                <option value="TE">TE</option>
+                            </select>
+                        </label>
+                    </form>
 
-            <form>
-                <label>Filter By Week:
-                    <select id="filter-by-week">
-                        <option value="total">Season Total</option>
-                        <option value="1">Week 1</option>
-                        <option value="2">Week 2</option>
-                        <option value="3">Week 3</option>
-                        <option value="4">Week 4</option>
-                        <option value="5">Week 5</option>
-                        <option value="6">Week 6</option>
-                        <option value="7">Week 7</option>
-                        <option value="8">Week 8</option>
-                        <option value="9">Week 9</option>
-                        <option value="10">Week 10</option>
-                        <option value="11">Week 11</option>
-                        <option value="12">Week 12</option>
-                        <option value="13">Week 13</option>
-                        <option value="14">Week 14</option>
-                        <option value="15">Week 15</option>
-                        <option value="16">Week 16</option>
-                        <option value="17">Week 17</option>
-                    </select>
-                </label>
-            </form>
+                    <form>
+                        <label>Filter By Week:
+                            <select id="filter-by-week">
+                                <option value="total">Season Total</option>
+                                <option value="1">Week 1</option>
+                                <option value="2">Week 2</option>
+                                <option value="3">Week 3</option>
+                                <option value="4">Week 4</option>
+                                <option value="5">Week 5</option>
+                                <option value="6">Week 6</option>
+                                <option value="7">Week 7</option>
+                                <option value="8">Week 8</option>
+                                <option value="9">Week 9</option>
+                                <option value="10">Week 10</option>
+                                <option value="11">Week 11</option>
+                                <option value="12">Week 12</option>
+                                <option value="13">Week 13</option>
+                                <option value="14">Week 14</option>
+                                <option value="15">Week 15</option>
+                                <option value="16">Week 16</option>
+                                <option value="17">Week 17</option>
+                            </select>
+                        </label>
+                    </form>
+                    <button id="filter-button">Filter</button>
+                </div>
+                <div class="icon-container">
+                    <a id="info-modal"><i class="fas fa-info-circle"></i></a>
+                    <a target="_blank" href="https://github.com/aciffone23"><i class="fab fa-github-square"></i></a>
+                    <a target="_blank" href="https://www.linkedin.com/in/angelo-ciffone-8a8645248/"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </nav>
 
-            <button id="filter-button">Filter</button>
+            
         </div>
         
         <div id="player-stats-container"></div>
