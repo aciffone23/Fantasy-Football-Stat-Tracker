@@ -85,89 +85,98 @@ function playerModal(player) {
       };
     });
     
-    console.log(topPlayerPositionData);
-    console.log(topPlayerWeeklyData);
+    // console.log(topPlayerPositionData);
+    // console.log(topPlayerWeeklyData);
     const dataset = player.weekData
     
     if (player.position === 'QB') {
     categoryHTML = `
-      <tr>
-        <th colspan="2">Passing</th>
-      </tr>
-      <tr>
-        <td>Yds</td>
-        <td>${player.stats.passing.passing_yds}</td>
-      </tr>
-      <tr>
-        <td>Tds</td>
-        <td>${player.stats.passing.passing_td}</td>
-      </tr>
-      <tr>
-        <td>Ints</td>
-        <td>${player.stats.passing.int}</td>
-      </tr>
-      <tr>
-        <th colspan="2">Rushing</th>
-      </tr>
-      <tr>
-        <td>Atts</td>
-        <td>${player.stats.rushing.rushing_att}</td>
-      </tr>
-      <tr>
-        <td>Yds</td>
-        <td>${player.stats.rushing.rushing_yds}</td>
-      </tr>
-      <tr>
-        <td>Tds</td>
-        <td>${player.stats.rushing.rushing_td}</td>
-      </tr>`;
+        <tr>
+            <th colspan="3">Passing</th>
+        </tr>
+        <tr>
+            <th>Yds</th>
+            <th>Tds</th>
+            <th>Ints</th>
+        </tr>
+        <tr>
+            <td>${player.stats.passing.passing_yds}</td>
+            <td>${player.stats.passing.passing_td}</td>
+            <td>${player.stats.passing.int}</td>
+        </tr>
+        <tr>
+            <th colspan="3">Rushing</th>
+        </tr>
+        <tr>
+            <th>Atts</th>
+            <th>Yds</th>
+            <th>Tds</th>
+        </tr>
+        <tr>
+            <td>${player.stats.rushing.rushing_att}</td>
+            <td>${player.stats.rushing.rushing_yds}</td>
+            <td>${player.stats.rushing.rushing_td}</td>
+        </tr>`;
     } else if (['WR', 'RB', 'TE'].includes(player.position)) {
       categoryHTML = `
         <tr>
-          <th colspan="2">Rushing</th>
+            <th colspan="3">Rushing</th>
         </tr>
         <tr>
-          <td>Atts</td>
-          <td>${player.stats.rushing.rushing_att}</td>
+            <th>Atts</th>
+            <th>Yds</th>
+            <th>Tds</th>
         </tr>
         <tr>
-          <td>Yds</td>
-          <td>${player.stats.rushing.rushing_yds}</td>
+            <td>${player.stats.rushing.rushing_att}</td>
+            <td>${player.stats.rushing.rushing_yds}</td>
+            <td>${player.stats.rushing.rushing_td}</td>
         </tr>
         <tr>
-          <td>Tds</td>
-          <td>${player.stats.rushing.rushing_td}</td>
+            <th colspan="3">Receiving</th>
         </tr>
         <tr>
-          <th colspan="2">Receiving</th>
+            <th>Rec</th>
+            <th>Yds</th>
+            <th>Tds</th>
         </tr>
         <tr>
-          <td>Rec</td>
-          <td>${player.stats.receiving.receptions}</td>
-        </tr>
-        <tr>
-          <td>Yds</td>
-          <td>${player.stats.receiving.receiving_yds}</td>
-        </tr>
-        <tr>
-          <td>Tds</td>
-          <td>${player.stats.receiving.receiving_td}</td>
+            <td>${player.stats.receiving.receptions}</td>
+            <td>${player.stats.receiving.receiving_yds}</td>
+            <td>${player.stats.receiving.receiving_td}</td>
         </tr>`;
+
     }
     
     modalContent.innerHTML = `
-      <span class="close">&times;</span>
-      <h2>Player Name:${player.player_name} 
-      <br>
-      Position: ${player.position}
-      <br>
-      Fantasy Points:${player.fantasy_points.ppr.toFixed(2)}</h2>
-      <table class="modal-stats-table">
-        ${categoryHTML}
-      </table>
+    <span class="close">&times;</span>
+    <div class="modal-player-info">
+        <div>
+            <h2><strong>Player Name:</strong></h2>
+            <h2>${player.player_name}</h2>
+        </div>
+        <div>
+            <h5>Position:</h5>
+            <h5>${player.position}</h5>
+        </div>
+        <div>
+            <h5>Fantasy Points:</h5>
+            <h5>${player.fantasy_points.ppr.toFixed(2)}</h5>
+        </div>
+    </div>
+    <h5 class="season-stats-heading">Season Stats:</h5>
+    <div id="line-chart-container"></div>
+    <div class="stat-container">
+        <table class="modal-stats-table">
+            ${categoryHTML}
+        </table>
+    </div>
+
     `;
     
-    
+    const lineChartContainer = document.getElementById("line-chart-container");
+    lineChart(dataset, topPlayerPositionData);
+
     modal.style.display = "block";
     
     const closeButton = modal.querySelector(".close");
@@ -181,10 +190,7 @@ function playerModal(player) {
       }
     };
     
-    const lineChartContainer = document.createElement("div");
-    lineChartContainer.id = "line-chart-container";
-    modalContent.appendChild(lineChartContainer);
-    lineChart(dataset, topPlayerPositionData);
+    
     
 }
 

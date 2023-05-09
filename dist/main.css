@@ -148,6 +148,16 @@
   text-decoration: underline;
 }
 
+.stat-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.modal-stats-table {
+  flex: 1;
+  min-width: 33%;
+}
+
 .modal-stats-table th,
 .modal-stats-table td {
   border: 1px solid #d3d3d3;
@@ -178,4 +188,30 @@
 .modal-stats-table tr:last-child td,
 .modal-stats-table tr:last-child th {
   border-bottom: 1px solid #d3d3d3;
+}
+
+.modal-player-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.modal-player-info div {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.modal-player-info h3,
+.modal-player-info h5 {
+  margin-right: 5px;
+  margin-bottom: 0;
+}
+
+.season-stats-heading {
+  text-align: center;
+  text-decoration: underline;
+  margin-bottom: 10px;
 }

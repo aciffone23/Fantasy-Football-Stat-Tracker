@@ -3,8 +3,8 @@
 export function lineChart(data, topPlayerData) {
     // console.log("Top Player Data:", topPlayerData);
     const margin = { top: 70, right: 30, bottom: 40, left: 100 };
-    const width = 450 - margin.left - margin.right;
-    const height = 250 - margin.top - margin.bottom;
+    const width = 600 - margin.left - margin.right;
+    const height = 500 - margin.top - margin.bottom;
   
     const x = d3
         .scaleLinear()
