@@ -1,5 +1,5 @@
-import { lineChart } from "./lineChart.js";
-import { topPlayerWeeklyData } from "./filter.js";
+// import { lineChart } from "./lineChart.js";
+// import { topPlayerWeeklyData } from "./filter.js";
 //info modal 
 // document.addEventListener('DOMContentLoaded', () => {
 //   const infoModal = document.getElementById('info-modal');
@@ -29,124 +29,124 @@ import { topPlayerWeeklyData } from "./filter.js";
 //   });
 // });
 
-function playerModal(player) {
-const modal = document.getElementById("player-modal");
-const modalContent = modal.querySelector(".modal-content");
-debugger
-let categoryHTML = ''
-console.log("Player position:", player.position);
+// function playerModal(player) {
+// const modal = document.getElementById("player-modal");
+// const modalContent = modal.querySelector(".modal-content");
+// debugger
+// let categoryHTML = ''
+// console.log("Player position:", player.position);
 
-const topPlayerPositionData = topPlayerWeeklyData.map((weekData) => {
-  return {
-    week: weekData[player.position].week,
-    value: weekData[player.position].value,
-  };
-});
+// const topPlayerPositionData = topPlayerWeeklyData.map((weekData) => {
+//   return {
+//     week: weekData[player.position].week,
+//     value: weekData[player.position].value,
+//   };
+// });
 
-console.log(topPlayerPositionData);
-console.log(topPlayerWeeklyData);
-const dataset = player.weekData
+// console.log(topPlayerPositionData);
+// console.log(topPlayerWeeklyData);
+// const dataset = player.weekData
 
-if (player.position === 'QB') {
-categoryHTML = `
-  <tr>
-    <th colspan="2">Passing</th>
-  </tr>
-  <tr>
-    <td>Yds</td>
-    <td>${player.stats.passing.passing_yds}</td>
-  </tr>
-  <tr>
-    <td>Tds</td>
-    <td>${player.stats.passing.passing_td}</td>
-  </tr>
-  <tr>
-    <td>Ints</td>
-    <td>${player.stats.passing.int}</td>
-  </tr>
-  <tr>
-    <th colspan="2">Rushing</th>
-  </tr>
-  <tr>
-    <td>Atts</td>
-    <td>${player.stats.rushing.rushing_att}</td>
-  </tr>
-  <tr>
-    <td>Yds</td>
-    <td>${player.stats.rushing.rushing_yds}</td>
-  </tr>
-  <tr>
-    <td>Tds</td>
-    <td>${player.stats.rushing.rushing_td}</td>
-  </tr>`;
-} else if (['WR', 'RB', 'TE'].includes(player.position)) {
-  categoryHTML = `
-    <tr>
-      <th colspan="2">Rushing</th>
-    </tr>
-    <tr>
-      <td>Atts</td>
-      <td>${player.stats.rushing.rushing_att}</td>
-    </tr>
-    <tr>
-      <td>Yds</td>
-      <td>${player.stats.rushing.rushing_yds}</td>
-    </tr>
-    <tr>
-      <td>Tds</td>
-      <td>${player.stats.rushing.rushing_td}</td>
-    </tr>
-    <tr>
-      <th colspan="2">Receiving</th>
-    </tr>
-    <tr>
-      <td>Rec</td>
-      <td>${player.stats.receiving.receptions}</td>
-    </tr>
-    <tr>
-      <td>Yds</td>
-      <td>${player.stats.receiving.receiving_yds}</td>
-    </tr>
-    <tr>
-      <td>Tds</td>
-      <td>${player.stats.receiving.receiving_td}</td>
-    </tr>`;
-}
+// if (player.position === 'QB') {
+// categoryHTML = `
+//   <tr>
+//     <th colspan="2">Passing</th>
+//   </tr>
+//   <tr>
+//     <td>Yds</td>
+//     <td>${player.stats.passing.passing_yds}</td>
+//   </tr>
+//   <tr>
+//     <td>Tds</td>
+//     <td>${player.stats.passing.passing_td}</td>
+//   </tr>
+//   <tr>
+//     <td>Ints</td>
+//     <td>${player.stats.passing.int}</td>
+//   </tr>
+//   <tr>
+//     <th colspan="2">Rushing</th>
+//   </tr>
+//   <tr>
+//     <td>Atts</td>
+//     <td>${player.stats.rushing.rushing_att}</td>
+//   </tr>
+//   <tr>
+//     <td>Yds</td>
+//     <td>${player.stats.rushing.rushing_yds}</td>
+//   </tr>
+//   <tr>
+//     <td>Tds</td>
+//     <td>${player.stats.rushing.rushing_td}</td>
+//   </tr>`;
+// } else if (['WR', 'RB', 'TE'].includes(player.position)) {
+//   categoryHTML = `
+//     <tr>
+//       <th colspan="2">Rushing</th>
+//     </tr>
+//     <tr>
+//       <td>Atts</td>
+//       <td>${player.stats.rushing.rushing_att}</td>
+//     </tr>
+//     <tr>
+//       <td>Yds</td>
+//       <td>${player.stats.rushing.rushing_yds}</td>
+//     </tr>
+//     <tr>
+//       <td>Tds</td>
+//       <td>${player.stats.rushing.rushing_td}</td>
+//     </tr>
+//     <tr>
+//       <th colspan="2">Receiving</th>
+//     </tr>
+//     <tr>
+//       <td>Rec</td>
+//       <td>${player.stats.receiving.receptions}</td>
+//     </tr>
+//     <tr>
+//       <td>Yds</td>
+//       <td>${player.stats.receiving.receiving_yds}</td>
+//     </tr>
+//     <tr>
+//       <td>Tds</td>
+//       <td>${player.stats.receiving.receiving_td}</td>
+//     </tr>`;
+// }
 
-modalContent.innerHTML = `
-  <span class="close">&times;</span>
-  <h2>Player Name:${player.player_name} 
-  <br>
-  Position: ${player.position}
-  <br>
-  Fantasy Points:${player.fantasy_points.ppr.toFixed(2)}</h2>
-  <table class="modal-stats-table">
-    ${categoryHTML}
-  </table>
-`;
+// modalContent.innerHTML = `
+//   <span class="close">&times;</span>
+//   <h2>Player Name:${player.player_name} 
+//   <br>
+//   Position: ${player.position}
+//   <br>
+//   Fantasy Points:${player.fantasy_points.ppr.toFixed(2)}</h2>
+//   <table class="modal-stats-table">
+//     ${categoryHTML}
+//   </table>
+// `;
 
 
-modal.style.display = "block";
+// modal.style.display = "block";
 
-const closeButton = modal.querySelector(".close");
-closeButton.onclick = function () {
-  modal.style.display = "none";
-};
+// const closeButton = modal.querySelector(".close");
+// closeButton.onclick = function () {
+//   modal.style.display = "none";
+// };
 
-window.onclick = function (event) {
-  if (event.target === modal) {
-    modal.style.display = "none";
-  }
-};
+// window.onclick = function (event) {
+//   if (event.target === modal) {
+//     modal.style.display = "none";
+//   }
+// };
 
-const lineChartContainer = document.createElement("div");
-lineChartContainer.id = "line-chart-container";
-modalContent.appendChild(lineChartContainer);
-lineChart(dataset, topPlayerPositionData);
+// const lineChartContainer = document.createElement("div");
+// lineChartContainer.id = "line-chart-container";
+// modalContent.appendChild(lineChartContainer);
+// lineChart(dataset, topPlayerPositionData);
 
-}
+// }
 
-export { playerModal };
+// export { playerModal };
 
   
   
