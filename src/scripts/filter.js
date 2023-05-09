@@ -184,6 +184,20 @@ window.onload = () => {
     });
 };
 
+const exports = {
+    playerStats,
+    searchedPlayers,
+    allSeasonData,
+    topPlayerWeeklyData,
+    searchPlayerByName,
+    getSeasonData,
+    getPlayerNames,
+    displayPlayerStats,
+    sortAndFilterByPosition,
+    filterButtonEventListener,
+  };
+  
+  export default exports;
 
 
 
