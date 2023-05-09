@@ -19,6 +19,33 @@ nav {
   margin-top: 10px;
 }
 
+.logo-img {
+  width: 175px; /* Change this value to your desired size */
+  height: 175px; /* Change this value to your desired size */
+  position: absolute;
+  top: 0x;
+  left: 10px;
+  z-index: -1;
+}
+
+#search-player {
+  display: flex;
+  align-items: center;
+}
+
+#search-player label {
+  display: flex;
+  align-items: center;
+}
+
+#search-player input[type=text] {
+  margin-right: 10px;
+}
+
+#search-player input[type=submit] {
+  margin-left: 10px;
+}
+
 .fab {
   color: black;
   padding: 8px 12px 8px 14px;
@@ -31,6 +58,12 @@ nav {
 
 .fab:hover {
   box-shadow: 0 0 10px grey;
+}
+
+.icon-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
 .form-container {

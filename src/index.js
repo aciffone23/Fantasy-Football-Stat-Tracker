@@ -1,10 +1,8 @@
 import filterData from '../src/scripts/filter.js';
 import { lineChart } from "../src/scripts/lineChart.js";
-// import * as modals from "../src/scripts/modals.js";
-// filterButtonEventListener
+
 const { playerStats, searchedPlayers, allSeasonData, topPlayerWeeklyData, searchPlayerByName, getSeasonData, getPlayerNames, displayPlayerStats, sortAndFilterByPosition } = filterData;
-// const { playerModal } = modals;
-// info modal 
+ 
 function filterButtonEventListener(){
     const weekSelect = document.getElementById('filter-by-week');
     const positionSelect = document.getElementById('filter-by-position');
@@ -146,7 +144,6 @@ function playerModal(player) {
             <td>${player.stats.receiving.receiving_yds}</td>
             <td>${player.stats.receiving.receiving_td}</td>
         </tr>`;
-
     }
     
     modalContent.innerHTML = `
@@ -172,7 +169,6 @@ function playerModal(player) {
             ${categoryHTML}
         </table>
     </div>
-
     `;
     
     const lineChartContainer = document.getElementById("line-chart-container");
@@ -190,9 +186,6 @@ function playerModal(player) {
         modal.style.display = "none";
       }
     };
-    
-    
-    
 }
 
 export { playerModal };
