@@ -13,6 +13,14 @@
 /*!*****************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss (3) ***!
   \*****************************************************************************************************************************************/
+@import url(//db.onlinewebfonts.com/c/39a2c7f346d5cfae7045aeb2fb50d9ad?family=LuloCleanW01-OneBold);
+/*!*****************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss (4) ***!
+  \*****************************************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;1,200&display=swap);
+/*!*****************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss (5) ***!
+  \*****************************************************************************************************************************************/
 .header {
   display: flex;
   justify-content: center;
@@ -50,10 +58,10 @@ nav {
 }
 
 .logo-img {
-  width: 175px;
-  height: 175px;
+  width: 177px;
+  height: 177px;
   position: absolute;
-  top: 0x;
+  top: 10;
   left: 10px;
   z-index: -1;
 }
@@ -139,9 +147,17 @@ nav {
   transform: translateY(4px);
 }
 
+#loading-gif {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
 .player-stats-table th,
 .player-stats-table td {
-  border: 1.5px solid #44464a;
   padding: 8px;
   text-align: center;
   border-bottom: none;
@@ -149,12 +165,12 @@ nav {
 
 .player-stats-table th {
   background-color: #eaeaea;
-  border: 1px solid #44464a;
   border-bottom: none;
   color: black;
-  font-size: 14px;
+  font-size: 12px;
   color: #44464a;
-  font-family: "Yahoo Sans Bold", serif;
+  font-family: "LuloCleanW01-OneBold";
+  font-weight: bold;
 }
 
 .player-stats-table tr:nth-child(even) {
@@ -166,7 +182,7 @@ nav {
 }
 
 .player-stats-table tr {
-  border-bottom: 1px solid black;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 .player-stats-table tr:last-child td,
@@ -354,4 +370,9 @@ nav {
   font-family: "Museo Sans 100";
   src: url("//db.onlinewebfonts.com/t/3b12f78c783e678acc1f0fefe8e46380.eot");
   src: url("//db.onlinewebfonts.com/t/3b12f78c783e678acc1f0fefe8e46380.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/3b12f78c783e678acc1f0fefe8e46380.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/3b12f78c783e678acc1f0fefe8e46380.woff") format("woff"), url("//db.onlinewebfonts.com/t/3b12f78c783e678acc1f0fefe8e46380.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/3b12f78c783e678acc1f0fefe8e46380.svg#Museo Sans 100") format("svg");
+}
+@font-face {
+  font-family: "LuloCleanW01-OneBold";
+  src: url("//db.onlinewebfonts.com/t/39a2c7f346d5cfae7045aeb2fb50d9ad.eot");
+  src: url("//db.onlinewebfonts.com/t/39a2c7f346d5cfae7045aeb2fb50d9ad.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/39a2c7f346d5cfae7045aeb2fb50d9ad.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/39a2c7f346d5cfae7045aeb2fb50d9ad.woff") format("woff"), url("//db.onlinewebfonts.com/t/39a2c7f346d5cfae7045aeb2fb50d9ad.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/39a2c7f346d5cfae7045aeb2fb50d9ad.svg#LuloCleanW01-OneBold") format("svg");
 }

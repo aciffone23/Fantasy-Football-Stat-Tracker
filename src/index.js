@@ -32,13 +32,14 @@ function submitSearchEventListener(event) {
     event.preventDefault();
     const searchInput = document.getElementById("search-player-input");
     const playerName = searchInput.value;
+    const loadingGif = document.getElementById('loading-gif');
 
     getPlayerNames("total").then((playerData) => {
         let searchedPlayers = searchPlayerByName(playerData, playerName);
         displayPlayerStats(searchedPlayers);
-        
     });
     searchInput.value = playerName;
+
 }
 
 function resetSearchEventListener() {
@@ -81,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById("search-player").addEventListener("submit", submitSearchEventListener);
     document.getElementById("reset-button").addEventListener("click", resetSearchEventListener);
     document.getElementById("info-modal").addEventListener("click", showModalInfo);
+    showModalInfo();
 });
 
 

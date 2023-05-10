@@ -1,6 +1,6 @@
 .player-stats-table th,
 .player-stats-table td {
-    border: 1.5px solid #44464a;
+    // border: 1.5px solid #44464a;
     padding: 8px;
     text-align: center;
     border-bottom: none;
@@ -8,12 +8,13 @@
 
 .player-stats-table th {
     background-color: #eaeaea;
-    border: 1px solid #44464a;
+    // border: 1px solid #44464a;
     border-bottom: none;
     color: black;
-    font-size: 14px;
+    font-size: 12px;
     color: #44464a;
-    font-family: "Yahoo Sans Bold", serif;
+    font-family: "LuloCleanW01-OneBold";
+    font-weight: bold;
 }
 
 .player-stats-table tr:nth-child(even) {
@@ -25,7 +26,8 @@
 }
 
 .player-stats-table tr {
-    border-bottom: 1px solid black;
+    // border-bottom: 1px solid black;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 .player-stats-table tr:last-child td,

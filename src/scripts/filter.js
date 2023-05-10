@@ -73,7 +73,7 @@ async function getSeasonData() {
 }
   
   //fetch data for week or season
-  async function getPlayerNames(week) {
+async function getPlayerNames(week) {
   if (week === 'total') {
     const seasonData = await getSeasonData();
     topPlayerWeeklyData = [];
