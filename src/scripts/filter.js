@@ -1,6 +1,4 @@
 import { playerModal } from '../index.js';
-//player stats variable
-var playerStats;
 
 //array to store searched players
 var searchedPlayers = [];
@@ -20,7 +18,6 @@ function searchPlayerByName(playerData, playerName) {
 
 //fetch all data from season
 async function getSeasonData() {
-    let topPts = [];
     let position = ["QB", "RB", "WR", "TE"];
     const seasonData = [];
     for (let w = 1; w <= 17; w++) {
@@ -138,12 +135,9 @@ function sortAndFilterByPosition(playerData, position) {
 }
 
 const exports = {
-    playerStats,
     searchedPlayers,
-    allSeasonData,
     topPlayerWeeklyData,
     searchPlayerByName,
-    getSeasonData,
     getPlayerNames,
     displayPlayerStats,
     sortAndFilterByPosition,

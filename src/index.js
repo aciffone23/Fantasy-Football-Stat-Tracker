@@ -1,7 +1,7 @@
 import filterData from '../src/scripts/filter.js';
 import { lineChart } from "../src/scripts/lineChart.js";
 
-const { playerStats, searchedPlayers, allSeasonData, topPlayerWeeklyData, searchPlayerByName, getSeasonData, getPlayerNames, displayPlayerStats, sortAndFilterByPosition } = filterData;
+const { searchedPlayers, topPlayerWeeklyData, searchPlayerByName, getPlayerNames, displayPlayerStats, sortAndFilterByPosition } = filterData;
  
 function getAndDisplayPlayerNames(selectedWeek, selectedPosition, playerNamesFilter = null) {
     getPlayerNames(selectedWeek).then(playerData => {
