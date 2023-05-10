@@ -29,6 +29,7 @@ window.onload = () => {
     document.getElementById('filter-button').addEventListener('click', filterButtonEventListener);
     document.getElementById("search-player").addEventListener("submit", (event) => {
         event.preventDefault();
+
         const searchInput = document.getElementById("search-player-input");
         const playerName = searchInput.value;
 
@@ -150,16 +151,14 @@ function playerModal(player) {
     <span class="close">&times;</span>
     <div class="modal-player-info">
         <div>
-            <h2><strong>Player Name:</strong></h2>
-            <h2>${player.player_name}</h2>
+            <strong>Player Name:</strong>
+            <br>
+            <span> ${player.player_name}</span>
         </div>
         <div>
-            <h5>Position:</h5>
-            <h5>${player.position}</h5>
-        </div>
-        <div>
-            <h5>Fantasy Points:</h5>
-            <h5>${player.fantasy_points.ppr.toFixed(2)}</h5>
+            <strong>Position:</strong> <span>${player.position}</span>
+            <br>
+            <strong>Fantasy Points:</strong> <span>${player.fantasy_points.ppr.toFixed(2)}</span>
         </div>
     </div>
     <h2 class="season-stats-heading">Season Stats:</h2>

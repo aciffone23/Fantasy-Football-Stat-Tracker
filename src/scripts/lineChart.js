@@ -2,8 +2,8 @@
 //dimensions and margins for chart
 export function lineChart(data, topPlayerData) {
     const margin = { top: 70, right: 30, bottom: 40, left: 100 };
-    const width = 600 - margin.left - margin.right;
-    const height = 500 - margin.top - margin.bottom;
+    const width = 800 - margin.left - margin.right;
+    const height = 550 - margin.top - margin.bottom;
   
     const x = d3
         .scaleLinear()
@@ -48,7 +48,7 @@ export function lineChart(data, topPlayerData) {
         .append("path")
         .datum(topPlayerData)
         .attr("fill", "none")
-        .attr("stroke", "blue")
+        .attr("stroke", "white")
         .attr("stroke-width", 2)
         .attr("d", topPlayerLine); 
 
@@ -56,7 +56,10 @@ export function lineChart(data, topPlayerData) {
         .append("text")
         .attr("transform", `translate(${width / 2},${height + margin.bottom - 5})`)
         .style("text-anchor", "middle")
+        .style("fill", "white")
         .text("Week");
+        
+
 
     svg
         .append("text")
@@ -65,7 +68,9 @@ export function lineChart(data, topPlayerData) {
         .attr("x", 0 - height / 2)
         .attr("dy", "1em")
         .style("text-anchor", "middle")
+        .style("fill", "white")
         .text("Fantasy Points");
+
   
     svg
         .append("g")

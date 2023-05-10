@@ -1,0 +1,57 @@
+.modal-stats-table {
+    flex: 1;
+    min-width: 33%;
+}
+
+.modal-stats-table th,
+.modal-stats-table td {
+    border: 1px solid #d3d3d3;
+    padding: 4px;
+    text-align: center;
+    border-bottom: none;
+}
+
+.modal-stats-table th {
+    background-color: #5ec86c;
+    border: 1px solid #d3d3d3;
+    border-bottom: none;
+}
+
+.modal-stats-table tr:nth-child(even) {
+    background-color: #9adca2;
+}
+
+.modal-stats-table tr:hover {
+    background-color: #e9ecef;
+}
+
+.modal-stats-table tr {
+    border-bottom: 1px solid #d3d3d3;
+}
+
+.modal-stats-table tr:last-child td,
+.modal-stats-table tr:last-child th {
+    border-bottom: 1px solid #d3d3d3;
+}
+
+
+.modal-player-info {
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 30px;
+}
+
+.modal-player-info h3,
+.modal-player-info h5 {
+    margin-right: 5px;
+    margin-bottom: 0;
+}
+
+.season-stats-heading {
+    text-align: center;
+    text-decoration: underline;
+    margin-bottom: 10px;
+}

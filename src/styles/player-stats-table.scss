@@ -1,0 +1,42 @@
+.player-stats-table th,
+.player-stats-table td {
+    border: 1.5px solid black;
+    padding: 8px;
+    text-align: center;
+    border-bottom: none;
+}
+
+.player-stats-table th {
+    background-color: whitesmoke;
+    border: 1px solid black;
+    border-bottom: none;
+    color: black;
+}
+
+.player-stats-table tr:nth-child(even) {
+    background-color: #45BF55;
+    // background: white;
+}
+
+.player-stats-table tr:hover {
+    background-color: #e9ecef;
+}
+
+.player-stats-table tr {
+    border-bottom: 1px solid black;
+}
+
+.player-stats-table tr:last-child td,
+.player-stats-table tr:last-child th {
+    border-bottom: 1px solid #d3d3d3;
+}
+
+.player-name-cell:hover {
+    text-decoration: underline;
+    color: blue
+}
+
+.stat-container {
+    display: flex;
+    flex-wrap: wrap;
+}
