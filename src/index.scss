@@ -4,6 +4,7 @@
 @import "./styles/modals.scss";
 @import url(//db.onlinewebfonts.com/c/b11f35f77210c651367969365f87af24?family=Trajan+Pro);
 @import url(//db.onlinewebfonts.com/c/557602b15207c6d67bbdda171a4157dd?family=Yahoo+Sans+Bold);
+@import url(//db.onlinewebfonts.com/c/3b12f78c783e678acc1f0fefe8e46380?family=Museo+Sans+100);
 
 
 @font-face {font-family: "Trajan Pro"; 
@@ -22,4 +23,13 @@
     url("//db.onlinewebfonts.com/t/557602b15207c6d67bbdda171a4157dd.woff") format("woff"), 
     url("//db.onlinewebfonts.com/t/557602b15207c6d67bbdda171a4157dd.ttf") format("truetype"), 
     url("//db.onlinewebfonts.com/t/557602b15207c6d67bbdda171a4157dd.svg#Yahoo Sans Bold") format("svg"); 
+}
+
+@font-face {font-family: "Museo Sans 100"; 
+    src: url("//db.onlinewebfonts.com/t/3b12f78c783e678acc1f0fefe8e46380.eot"); 
+    src: url("//db.onlinewebfonts.com/t/3b12f78c783e678acc1f0fefe8e46380.eot?#iefix") format("embedded-opentype"), 
+    url("//db.onlinewebfonts.com/t/3b12f78c783e678acc1f0fefe8e46380.woff2") format("woff2"),
+    url("//db.onlinewebfonts.com/t/3b12f78c783e678acc1f0fefe8e46380.woff") format("woff"), 
+    url("//db.onlinewebfonts.com/t/3b12f78c783e678acc1f0fefe8e46380.ttf") format("truetype"), 
+    url("//db.onlinewebfonts.com/t/3b12f78c783e678acc1f0fefe8e46380.svg#Museo Sans 100") format("svg"); 
 }

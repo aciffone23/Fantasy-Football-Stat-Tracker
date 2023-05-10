@@ -18,6 +18,7 @@ function searchPlayerByName(playerData, playerName) {
 
 //fetch all data from season
 async function getSeasonData() {
+    // let topPlayerWeeklyData = [];
     let position = ["QB", "RB", "WR", "TE"];
     const seasonData = [];
     for (let w = 1; w <= 17; w++) {
@@ -75,6 +76,7 @@ async function getSeasonData() {
   async function getPlayerNames(week) {
   if (week === 'total') {
     const seasonData = await getSeasonData();
+    topPlayerWeeklyData = [];
     return sortAndFilterByPosition(seasonData, 'All');
   } else {
     const apiUrl = `https://www.fantasyfootballdatapros.com/api/players/2019/${week}`;

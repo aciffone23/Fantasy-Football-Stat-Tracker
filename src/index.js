@@ -25,7 +25,6 @@ function filterButtonEventListener() {
     } else {
         const searchedNames = searchedPlayers.map(f => f.player_name);
         getAndDisplayPlayerNames(selectedWeek, selectedPosition, searchedNames);
-        
     }
 }
 
@@ -45,6 +44,7 @@ function submitSearchEventListener(event) {
 function resetSearchEventListener() {
     const searchInput = document.getElementById("search-player-input");
     searchInput.value = '';
+
     getPlayerNames("total").then((playerData) => {
         displayPlayerStats(playerData);
     });
