@@ -3,72 +3,77 @@ import { lineChart } from "../src/scripts/lineChart.js";
 
 const { playerStats, searchedPlayers, allSeasonData, topPlayerWeeklyData, searchPlayerByName, getSeasonData, getPlayerNames, displayPlayerStats, sortAndFilterByPosition } = filterData;
  
-function filterButtonEventListener(){
+function getAndDisplayPlayerNames(selectedWeek, selectedPosition, playerNamesFilter = null) {
+    getPlayerNames(selectedWeek).then(playerData => {
+        let filteredPlayerData = playerData;
+        if (playerNamesFilter) {
+            filteredPlayerData = playerData.filter(f => playerNamesFilter.includes(f.player_name));
+        }
+        const filteredPlayers = sortAndFilterByPosition(filteredPlayerData, selectedPosition);
+        displayPlayerStats(filteredPlayers);
+    });
+}
+
+function filterButtonEventListener() {
     const weekSelect = document.getElementById('filter-by-week');
     const positionSelect = document.getElementById('filter-by-position');
-  
     const selectedWeek = weekSelect.value;
-    const selectedPosition = positionSelect.value;       
+    const selectedPosition = positionSelect.value;
+
     if (searchedPlayers.length === 0) {
-        getPlayerNames(selectedWeek).then(playerData => {
-            const filteredPlayers = sortAndFilterByPosition(playerData, selectedPosition);
-            displayPlayerStats(filteredPlayers);
-        });
+        getAndDisplayPlayerNames(selectedWeek, selectedPosition);
     } else {
-        getPlayerNames(selectedWeek).then(playerData => {
-            var searchedNames = searchedPlayers.map(f => f.player_name);
-            var searchedPlayerObjects = playerData.filter(f => searchedNames.includes(f.player_name));
-            const filteredPlayers = sortAndFilterByPosition(searchedPlayerObjects, selectedPosition);
-            displayPlayerStats(filteredPlayers);
-        });
+        const searchedNames = searchedPlayers.map(f => f.player_name);
+        getAndDisplayPlayerNames(selectedWeek, selectedPosition, searchedNames);
+        
     }
 }
-//setup event listeners
-window.onload = () => {
-    filterButtonEventListener();
-    document.getElementById('filter-button').addEventListener('click', filterButtonEventListener);
-    document.getElementById("search-player").addEventListener("submit", (event) => {
-        event.preventDefault();
 
-        const searchInput = document.getElementById("search-player-input");
-        const playerName = searchInput.value;
-
-        getPlayerNames("total").then((playerData) => {
-            let searchedPlayers = searchPlayerByName(playerData, playerName);
-            displayPlayerStats(searchedPlayers);
-        });
-
-        searchInput.value = playerName;
+function submitSearchEventListener(event) {
+    event.preventDefault();
+    const searchInput = document.getElementById("search-player-input");
+    const playerName = searchInput.value;
+    
+    getPlayerNames("total").then((playerData) => {
+        let searchedPlayers = searchPlayerByName(playerData, playerName);
+        displayPlayerStats(searchedPlayers);
+        
     });
-};
+    searchInput.value = playerName;
+}
 
-document.addEventListener('DOMContentLoaded', () => {
-  const infoModal = document.getElementById('info-modal');
-  infoModal.addEventListener('click', () => {
-    //creates new div called modal
+function showModalInfo() {
     const modal = document.createElement('div');
-    //makes new classes for modal and show, show is needed because it is hidden by default
     modal.classList.add('modal', 'show');
     modal.innerHTML = `
-      <div class="modal-content">
-        <h2>How to use Fantasy Football Stat Tracker</h2>
-        <p>1. Use the search bar to find a player by name.</p>
-        <p>2. Use the filter dropdowns to get a search by week and position.</p>
-        <p>3. Click the Filter button to see the results sorted by fantasy points.</p>
-        <p>4. The results will be displayed below the filter dropdowns.</p>
-        <p>5. Clear the search text if needed to reset the search parameters.</p>
-        <button id="close-modal" class="close">&times;</button>
-      </div>
+        <div class="modal-content">
+            <h2>How to use Fantasy Football Stat Tracker</h2>
+            <p>1. Use the search bar to find a player by name.</p>
+            <p>2. Use the filter dropdowns to get a search by week and position.</p>
+            <p>3. Click the Filter button to see the results sorted by fantasy points.</p>
+            <p>4. The results will be displayed below the filter dropdowns.</p>
+            <p>5. Clear the search text if needed to reset the search parameters.</p>
+            <button id="close-modal" class="close">&times;</button>
+        </div>
     `;
     document.body.appendChild(modal);
-    //creating a close button, to remove show if clicked
+
     const closeModalBtn = document.getElementById('close-modal');
     closeModalBtn.addEventListener('click', () => {
-      modal.classList.remove('show');
-      modal.remove();
+        modal.classList.remove('show');
+        modal.remove();
     });
-  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    filterButtonEventListener();
+    document.getElementById('filter-button').addEventListener('click', filterButtonEventListener);
+    document.getElementById("search-player").addEventListener("submit", submitSearchEventListener);
+
+    const infoModal = document.getElementById('info-modal');
+    infoModal.addEventListener('click', showModalInfo);
 });
+
 
 function playerModal(player) {
     const modal = document.getElementById("player-modal");

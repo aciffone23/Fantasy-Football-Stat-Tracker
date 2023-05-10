@@ -9,7 +9,6 @@ export function lineChart(data, topPlayerData) {
         .scaleLinear()
         .range([0, width])
         .domain(d3.extent(data, (d) => {
-            console.log(d.week,d.value);
             return d.week;
     }));
 
