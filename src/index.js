@@ -33,13 +33,21 @@ function submitSearchEventListener(event) {
     event.preventDefault();
     const searchInput = document.getElementById("search-player-input");
     const playerName = searchInput.value;
-    
+
     getPlayerNames("total").then((playerData) => {
         let searchedPlayers = searchPlayerByName(playerData, playerName);
         displayPlayerStats(searchedPlayers);
         
     });
     searchInput.value = playerName;
+}
+
+function resetSearchEventListener() {
+    const searchInput = document.getElementById("search-player-input");
+    searchInput.value = '';
+    getPlayerNames("total").then((playerData) => {
+        displayPlayerStats(playerData);
+    });
 }
 
 function showModalInfo() {
@@ -52,7 +60,8 @@ function showModalInfo() {
             <p>2. Use the filter dropdowns to get a search by week and position.</p>
             <p>3. Click the Filter button to see the results sorted by fantasy points.</p>
             <p>4. The results will be displayed below the filter dropdowns.</p>
-            <p>5. Clear the search text if needed to reset the search parameters.</p>
+            <p>5. The reset button clears the search to reload the data. </p>
+            <p>6. Click on a players name to get a more detailed view of his stats. </p>
             <button id="close-modal" class="close">&times;</button>
         </div>
     `;
@@ -69,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     filterButtonEventListener();
     document.getElementById('filter-button').addEventListener('click', filterButtonEventListener);
     document.getElementById("search-player").addEventListener("submit", submitSearchEventListener);
+    document.getElementById("reset-button").addEventListener("click", resetSearchEventListener);
 
     const infoModal = document.getElementById('info-modal');
     infoModal.addEventListener('click', showModalInfo);
