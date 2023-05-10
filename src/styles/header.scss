@@ -3,22 +3,35 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    position: relative;
+    z-index: 1;
 }
 
 .header h1 {
     margin-top: 10px;
     font-family: "Trajan Pro", serif;
     font-size: 45px;
+    color: white;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 30px;
     margin-bottom: 10px;
     font-family: "Yahoo Sans Bold", serif;
     font-size: 15px;
+}
+
+.field {
+    width: 700px;
+    height: 120px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: -1;
 }
 
 .logo-img {
