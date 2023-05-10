@@ -62,6 +62,7 @@ function showModalInfo() {
             <p>4. The results will be displayed below the filter dropdowns.</p>
             <p>5. The reset button clears the search to reload the data. </p>
             <p>6. Click on a players name to get a more detailed view of his stats. </p>
+            <p>7. You can click on the legend circles in the Season Stats graph to toggle the stats.</p>
             <button id="close-modal" class="close">&times;</button>
         </div>
     `;

@@ -164,7 +164,8 @@ export function lineChart(data, topPlayerData) {
             d3.select(`#${d.name}`).style('opacity', newOpacity); 
             d3.selectAll(`.${d.name}`).style('opacity', newOpacity); 
             d.active = isActive;
-        });
+    });
+    
     legend.append('text')
         .attr('x', width - 60)
         .attr('y', 9)
