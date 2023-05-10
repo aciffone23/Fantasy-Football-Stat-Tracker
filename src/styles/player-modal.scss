@@ -12,26 +12,25 @@
 }
 
 .modal-stats-table th {
-    background-color: #5ec86c;
+    background-color: white;
     border: 1px solid #d3d3d3;
     border-bottom: none;
-}
-
-.modal-stats-table tr:nth-child(even) {
-    background-color: #9adca2;
+    font-family: "Yahoo Sans Bold", serif;
 }
 
 .modal-stats-table tr:hover {
-    background-color: #e9ecef;
+    background-color: white;
 }
 
 .modal-stats-table tr {
-    border-bottom: 1px solid #d3d3d3;
+    border-bottom: 1px solid #9adca2;
+    background-color: #9adca2;
+
 }
 
 .modal-stats-table tr:last-child td,
 .modal-stats-table tr:last-child th {
-    border-bottom: 1px solid #d3d3d3;
+    border-bottom: 1px solid #9adca2;
 }
 
 
@@ -42,12 +41,20 @@
     align-items: center;
     flex-wrap: wrap;
     font-size: 20px;
+    font-weight: bold;
 }
 
-.modal-player-info h3,
-.modal-player-info h5 {
+.modal-player-info span {
     margin-right: 5px;
     margin-bottom: 0;
+    font-family: "Yahoo Sans Bold", serif;
+    font-size: 15px;
+}
+
+.modal-player-info div {
+    margin-right: 5px;
+    margin-bottom: 0;
+    font-family: "Yahoo Sans Bold", serif;
 }
 
 .season-stats-heading {
@@ -55,4 +62,6 @@
     text-decoration: underline;
     margin-bottom: 10px;
     font-size: 20px;
+    font-family: "Yahoo Sans Bold", serif;
+
 }

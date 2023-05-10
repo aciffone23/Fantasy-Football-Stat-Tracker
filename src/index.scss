@@ -2,4 +2,24 @@
 @import "./styles/player-stats-table.scss";
 @import "./styles/player-modal.scss";
 @import "./styles/modals.scss";
+@import url(//db.onlinewebfonts.com/c/b11f35f77210c651367969365f87af24?family=Trajan+Pro);
+@import url(//db.onlinewebfonts.com/c/557602b15207c6d67bbdda171a4157dd?family=Yahoo+Sans+Bold);
 
+
+@font-face {font-family: "Trajan Pro"; 
+    src: url("//db.onlinewebfonts.com/t/b11f35f77210c651367969365f87af24.eot"); 
+    src: url("//db.onlinewebfonts.com/t/b11f35f77210c651367969365f87af24.eot?#iefix") format("embedded-opentype"), 
+    url("//db.onlinewebfonts.com/t/b11f35f77210c651367969365f87af24.woff2") format("woff2"), 
+    url("//db.onlinewebfonts.com/t/b11f35f77210c651367969365f87af24.woff") format("woff"), 
+    url("//db.onlinewebfonts.com/t/b11f35f77210c651367969365f87af24.ttf") format("truetype"), 
+    url("//db.onlinewebfonts.com/t/b11f35f77210c651367969365f87af24.svg#Trajan Pro") format("svg"); 
+}
+
+@font-face {font-family: "Yahoo Sans Bold"; 
+    src: url("//db.onlinewebfonts.com/t/557602b15207c6d67bbdda171a4157dd.eot"); 
+    src: url("//db.onlinewebfonts.com/t/557602b15207c6d67bbdda171a4157dd.eot?#iefix") format("embedded-opentype"), 
+    url("//db.onlinewebfonts.com/t/557602b15207c6d67bbdda171a4157dd.woff2") format("woff2"), 
+    url("//db.onlinewebfonts.com/t/557602b15207c6d67bbdda171a4157dd.woff") format("woff"), 
+    url("//db.onlinewebfonts.com/t/557602b15207c6d67bbdda171a4157dd.ttf") format("truetype"), 
+    url("//db.onlinewebfonts.com/t/557602b15207c6d67bbdda171a4157dd.svg#Yahoo Sans Bold") format("svg"); 
+}

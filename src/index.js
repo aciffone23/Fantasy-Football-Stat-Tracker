@@ -79,9 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('filter-button').addEventListener('click', filterButtonEventListener);
     document.getElementById("search-player").addEventListener("submit", submitSearchEventListener);
     document.getElementById("reset-button").addEventListener("click", resetSearchEventListener);
-
-    const infoModal = document.getElementById('info-modal');
-    infoModal.addEventListener('click', showModalInfo);
+    document.getElementById("info-modal").addEventListener("click", showModalInfo);
 });
 
 
@@ -91,7 +89,6 @@ function playerModal(player) {
     const modalContent = modal.querySelector(".modal-content");
     debugger
     let categoryHTML = ''
-    console.log("Player position:", player.position);
     
     const topPlayerPositionData = topPlayerWeeklyData.map((weekData) => {
       return {
@@ -100,8 +97,6 @@ function playerModal(player) {
       };
     });
     
-    // console.log(topPlayerPositionData);
-    // console.log(topPlayerWeeklyData);
     const dataset = player.weekData
     
     if (player.position === 'QB') {

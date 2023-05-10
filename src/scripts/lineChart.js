@@ -47,7 +47,7 @@ export function lineChart(data, topPlayerData) {
         .append("path")
         .datum(topPlayerData)
         .attr("fill", "none")
-        .attr("stroke", "white")
+        .attr("stroke", "black")
         .attr("stroke-width", 2)
         .attr("d", topPlayerLine); 
 

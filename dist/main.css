@@ -1,6 +1,14 @@
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
+@import url(//db.onlinewebfonts.com/c/b11f35f77210c651367969365f87af24?family=Trajan+Pro);
+/*!*****************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss (1) ***!
+  \*****************************************************************************************************************************************/
+@import url(//db.onlinewebfonts.com/c/557602b15207c6d67bbdda171a4157dd?family=Yahoo+Sans+Bold);
+/*!*****************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss (2) ***!
+  \*****************************************************************************************************************************************/
 .header {
   display: flex;
   justify-content: center;
@@ -10,6 +18,7 @@
 
 .header h1 {
   margin-top: 10px;
+  font-family: "Trajan Pro", serif;
 }
 
 nav {
@@ -18,6 +27,8 @@ nav {
   align-items: center;
   margin-top: 10px;
   margin-bottom: 10px;
+  font-family: "Yahoo Sans Bold", serif;
+  font-size: 15px;
 }
 
 .logo-img {
@@ -96,8 +107,9 @@ nav {
   color: #fff;
   background-color: black;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   box-shadow: 0 5px #999;
+  font-family: "Yahoo Sans Bold", serif;
 }
 
 .button:hover {
@@ -123,8 +135,9 @@ nav {
   border: 1px solid #44464a;
   border-bottom: none;
   color: black;
-  font-size: 15px;
+  font-size: 14px;
   color: #44464a;
+  font-family: "Yahoo Sans Bold", serif;
 }
 
 .player-stats-table tr:nth-child(even) {
@@ -168,26 +181,24 @@ nav {
 }
 
 .modal-stats-table th {
-  background-color: #5ec86c;
+  background-color: white;
   border: 1px solid #d3d3d3;
   border-bottom: none;
-}
-
-.modal-stats-table tr:nth-child(even) {
-  background-color: #9adca2;
+  font-family: "Yahoo Sans Bold", serif;
 }
 
 .modal-stats-table tr:hover {
-  background-color: #e9ecef;
+  background-color: white;
 }
 
 .modal-stats-table tr {
-  border-bottom: 1px solid #d3d3d3;
+  border-bottom: 1px solid #9adca2;
+  background-color: #9adca2;
 }
 
 .modal-stats-table tr:last-child td,
 .modal-stats-table tr:last-child th {
-  border-bottom: 1px solid #d3d3d3;
+  border-bottom: 1px solid #9adca2;
 }
 
 .modal-player-info {
@@ -197,12 +208,20 @@ nav {
   align-items: center;
   flex-wrap: wrap;
   font-size: 20px;
+  font-weight: bold;
 }
 
-.modal-player-info h3,
-.modal-player-info h5 {
+.modal-player-info span {
   margin-right: 5px;
   margin-bottom: 0;
+  font-family: "Yahoo Sans Bold", serif;
+  font-size: 15px;
+}
+
+.modal-player-info div {
+  margin-right: 5px;
+  margin-bottom: 0;
+  font-family: "Yahoo Sans Bold", serif;
 }
 
 .season-stats-heading {
@@ -210,6 +229,7 @@ nav {
   text-decoration: underline;
   margin-bottom: 10px;
   font-size: 20px;
+  font-family: "Yahoo Sans Bold", serif;
 }
 
 #info-modal {
@@ -232,11 +252,11 @@ nav {
   padding: 20px;
   width: 80%;
   max-width: 850px;
-  background-color: #45BF55;
+  background-color: white;
   border-radius: 10px;
   box-shadow: 0px 4px 8px black;
   position: center;
-  color: white;
+  color: black;
   font-size: 20px;
 }
 
@@ -286,4 +306,15 @@ nav {
 
 .modal.show .modal-content {
   margin-top: 10%;
+}
+
+@font-face {
+  font-family: "Trajan Pro";
+  src: url("//db.onlinewebfonts.com/t/b11f35f77210c651367969365f87af24.eot");
+  src: url("//db.onlinewebfonts.com/t/b11f35f77210c651367969365f87af24.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/b11f35f77210c651367969365f87af24.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/b11f35f77210c651367969365f87af24.woff") format("woff"), url("//db.onlinewebfonts.com/t/b11f35f77210c651367969365f87af24.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/b11f35f77210c651367969365f87af24.svg#Trajan Pro") format("svg");
+}
+@font-face {
+  font-family: "Yahoo Sans Bold";
+  src: url("//db.onlinewebfonts.com/t/557602b15207c6d67bbdda171a4157dd.eot");
+  src: url("//db.onlinewebfonts.com/t/557602b15207c6d67bbdda171a4157dd.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/557602b15207c6d67bbdda171a4157dd.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/557602b15207c6d67bbdda171a4157dd.woff") format("woff"), url("//db.onlinewebfonts.com/t/557602b15207c6d67bbdda171a4157dd.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/557602b15207c6d67bbdda171a4157dd.svg#Yahoo Sans Bold") format("svg");
 }
