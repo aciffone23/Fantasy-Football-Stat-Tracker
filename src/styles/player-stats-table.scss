@@ -1,16 +1,18 @@
 .player-stats-table th,
 .player-stats-table td {
-    border: 1.5px solid black;
+    border: 1.5px solid #44464a;
     padding: 8px;
     text-align: center;
     border-bottom: none;
 }
 
 .player-stats-table th {
-    background-color: whitesmoke;
-    border: 1px solid black;
+    background-color: #eaeaea;
+    border: 1px solid #44464a;
     border-bottom: none;
     color: black;
+    font-size: 15px;
+    color: #44464a;
 }
 
 .player-stats-table tr:nth-child(even) {

@@ -17,6 +17,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .logo-img {
@@ -39,17 +40,23 @@ nav {
 }
 
 #search-player input[type=text] {
-  margin-right: 10px;
+  margin-right: 5px;
+  margin-left: 5px;
 }
 
 #search-player input[type=submit] {
-  margin-left: 10px;
+  margin-left: 3px;
+  margin-right: 7px;
+}
+
+#filter-button {
+  margin-left: -8px;
 }
 
 .fab {
   color: black;
   padding: 8px 12px 8px 14px;
-  margin: 10px 10px;
+  margin: -5px -5px;
   border: 0.5px solid white;
   border-radius: 5px;
   background-color: white;
@@ -69,7 +76,7 @@ nav {
 .form-container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .form-container form {
@@ -78,19 +85,46 @@ nav {
   margin-right: 15px;
 }
 
+.button {
+  display: inline-block;
+  padding: 12px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: black;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 5px #999;
+}
+
+.button:hover {
+  background-color: #3e8e41;
+}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
 .player-stats-table th,
 .player-stats-table td {
-  border: 1.5px solid black;
+  border: 1.5px solid #44464a;
   padding: 8px;
   text-align: center;
   border-bottom: none;
 }
 
 .player-stats-table th {
-  background-color: whitesmoke;
-  border: 1px solid black;
+  background-color: #eaeaea;
+  border: 1px solid #44464a;
   border-bottom: none;
   color: black;
+  font-size: 15px;
+  color: #44464a;
 }
 
 .player-stats-table tr:nth-child(even) {
@@ -162,7 +196,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  font-size: 30px;
+  font-size: 20px;
 }
 
 .modal-player-info h3,
@@ -175,13 +209,14 @@ nav {
   text-align: center;
   text-decoration: underline;
   margin-bottom: 10px;
+  font-size: 20px;
 }
 
 #info-modal {
   font-size: 25px;
   color: black;
   padding: 8px 12px 8px 14px;
-  margin: 10px 10px;
+  margin: -5px -5px;
   border: 0.5px solid white;
   border-radius: 5px;
   background-color: white;

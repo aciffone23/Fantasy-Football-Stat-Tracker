@@ -55,7 +55,7 @@ function showModalInfo() {
     modal.classList.add('modal', 'show');
     modal.innerHTML = `
         <div class="modal-content">
-            <h2>How to use Fantasy Football Stat Tracker</h2>
+            <h2>How to use Performance Playbook</h2>
             <p>1. Use the search bar to find a player by name.</p>
             <p>2. Use the filter dropdowns to get a search by week and position.</p>
             <p>3. Click the Filter button to see the results sorted by fantasy points.</p>
@@ -166,17 +166,16 @@ function playerModal(player) {
     <span class="close">&times;</span>
     <div class="modal-player-info">
         <div>
-            <strong>Player Name:</strong>
+            <strong>Player Name:</strong><span> ${player.player_name}</span>
             <br>
-            <span> ${player.player_name}</span>
-        </div>
-        <div>
             <strong>Position:</strong> <span>${player.position}</span>
             <br>
             <strong>Fantasy Points:</strong> <span>${player.fantasy_points.ppr.toFixed(2)}</span>
         </div>
+        <div>
+        </div>
     </div>
-    <h2 class="season-stats-heading">Season Stats:</h2>
+    <h2 class="season-stats-heading">Season Stats</h2>
     <div id="line-chart-container"></div>
     <div class="stat-container">
         <table class="modal-stats-table">
