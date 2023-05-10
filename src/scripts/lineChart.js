@@ -101,6 +101,7 @@ export function lineChart(data, topPlayerData) {
         .style('opacity', 0);
 
     circles.on('mouseover', (event, d) => {
+        d3.select(event.target).attr('r', 10);
         let [x, y] = d3.pointer(event);
         tooltip.transition()
             .duration(200)
@@ -111,12 +112,15 @@ export function lineChart(data, topPlayerData) {
     });
 
     circles.on('mouseout', (d) => {
+        d3.select(event.target).attr('r', 6);
         tooltip.transition()
             .duration(500)
             .style('opacity', 0);
     });
 
     topPlayerCircles.on('mouseover', (event, d) => {
+        d3.select(event.target).attr('r', 10);
+
         let [x, y] = d3.pointer(event);
         tooltip.transition()
             .duration(200)
@@ -127,6 +131,7 @@ export function lineChart(data, topPlayerData) {
     });
 
     topPlayerCircles.on('mouseout', (d) => {
+        d3.select(event.target).attr('r', 6);
         tooltip.transition()
             .duration(500)
             .style('opacity', 0);
@@ -154,16 +159,29 @@ export function lineChart(data, topPlayerData) {
         .style('stroke', d => d.color);
 
     legend.append('circle') 
-        .attr('cx', width - 80)
-        .attr('cy', 9)
-        .attr('r', 5)
-        .style('fill', d => d.color)
-        .on('click', (event, d) => {
-            const isActive = d.active ? false : true;
-            const newOpacity = isActive ? 0 : 1;
-            d3.select(`#${d.name}`).style('opacity', newOpacity); 
-            d3.selectAll(`.${d.name}`).style('opacity', newOpacity); 
-            d.active = isActive;
+    .attr('cx', width - 80)
+    .attr('cy', 9)
+    .attr('r', 5)
+    .style('fill', d => d.color)
+    .on('click', (event, d) => {
+        const isActive = d.active ? false : true;
+        const newOpacity = isActive ? 0 : 1;
+        d3.select(`#${d.name}`).style('opacity', newOpacity); 
+        d3.selectAll(`.${d.name}`).style('opacity', newOpacity); 
+        d.active = isActive;
+    })
+    .on('mouseover', (event, d) => {
+        tooltip.transition()
+            .duration(200)
+            .style('opacity', .9);
+        tooltip.html('Click to toggle')
+            .style('left', `${event.pageX - 300}px`)
+            .style('top', `${event.pageY}px`);
+    })
+    .on('mouseout', () => {
+        tooltip.transition()
+            .duration(500)
+            .style('opacity', 0);
     });
     
     legend.append('text')
