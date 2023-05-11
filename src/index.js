@@ -47,7 +47,7 @@ function submitSearchEventListener(event) {
 function resetSearchEventListener() {
     const searchInput = document.getElementById("search-player-input");
     searchInput.value = '';
-
+    searchedPlayers = []
     getPlayerNames("total").then((playerData) => {
         displayPlayerStats(playerData);
     });
