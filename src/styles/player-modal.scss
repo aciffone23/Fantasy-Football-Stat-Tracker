@@ -15,7 +15,8 @@
     background-color: #eaeaea;
     border: 1px solid #d3d3d3;
     border-bottom: none;
-    font-family: "Yahoo Sans Bold", serif;
+    font-family: "LuloCleanW01-OneBold";
+    font-size: 12px;
 }
 
 .modal-stats-table tr:hover {
@@ -23,13 +24,15 @@
 }
 
 .modal-stats-table tr {
-    border-bottom: 1px solid #9adca2;
-    background-color: #9adca2;
+    border-bottom: 1px solid #eaeaea;
+    background-color: white;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px;
 }
 
 .modal-stats-table tr:last-child td,
 .modal-stats-table tr:last-child th {
-    border-bottom: 1px solid #9adca2;
+    border-bottom: 1px solid #eaeaea;
 }
 
 
