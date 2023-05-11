@@ -1,5 +1,3 @@
-
-//dimensions and margins for chart
 export function lineChart(data, topPlayerData) {
 
     const margin = { top: 70, right: 30, bottom: 40, left: 100 };
@@ -34,7 +32,7 @@ export function lineChart(data, topPlayerData) {
         .append("path")
         .datum(data)
         .attr("fill", "none")
-        .attr("stroke", "red")
+        .attr("stroke", "green")
         .attr("stroke-width", 2)
         .attr('id', 'Player')
         .attr("d", line);
@@ -66,7 +64,7 @@ export function lineChart(data, topPlayerData) {
         .enter()
         .append('circle')
         .attr('class', 'Player')
-        .attr('fill', 'red')
+        .attr('fill', 'green')
         .attr('stroke', 'none')
         .attr('cx', function(d) { return x(d.week) })
         .attr('cy', function(d) { return y(d.value) })
@@ -145,7 +143,7 @@ export function lineChart(data, topPlayerData) {
     svg.append("g").call(d3.axisLeft(y));
 
     const legend = svg.selectAll('.legend')
-        .data([{color: 'red', name: 'Player'}, {color: 'black', name: 'TopatPOS'}]) // Change these to match your data
+        .data([{color: 'green', name: 'Player'}, {color: 'black', name: 'TopatPOS'}]) 
         .enter()
         .append('g')
         .attr('class', 'legend')
