@@ -19,6 +19,7 @@ function filterButtonEventListener() {
     const positionSelect = document.getElementById('filter-by-position');
     const selectedWeek = weekSelect.value;
     const selectedPosition = positionSelect.value;
+    console.log(searchedPlayers)
 
     if (searchedPlayers.length === 0) {
         getAndDisplayPlayerNames(selectedWeek, selectedPosition);
@@ -56,7 +57,7 @@ function showModalInfo() {
     modal.classList.add('modal', 'show');
     modal.innerHTML = `
         <div class="modal-content info-modal-content">
-            <h2>How to use Performance Playbook?</h2>
+            <h1>Welcome to Performance Playbook</h1>
             <p> Use the search bar to find a player by name.</p>
             <p> Use the filter dropdowns to get a search by week and position.</p>
             <p> Click the Filter button to see the results sorted by fantasy points.</p>
@@ -77,7 +78,8 @@ function showModalInfo() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    resetSearchEventListener();
+    // resetSearchEventListener();
+    filterButtonEventListener();
     document.getElementById('filter-button').addEventListener('click', filterButtonEventListener);
     document.getElementById("search-player").addEventListener("submit", submitSearchEventListener);
     document.getElementById("reset-button").addEventListener("click", resetSearchEventListener);
