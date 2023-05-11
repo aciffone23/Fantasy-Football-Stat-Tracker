@@ -1,8 +1,10 @@
 import filterData from '../src/scripts/filter.js';
 import { lineChart } from "../src/scripts/lineChart.js";
 
-const { searchedPlayers, topPlayerWeeklyData, searchPlayerByName, getPlayerNames, displayPlayerStats, sortAndFilterByPosition } = filterData;
+const { topPlayerWeeklyData, searchPlayerByName, getPlayerNames, displayPlayerStats, sortAndFilterByPosition } = filterData;
  
+var searchedPlayers = [];
+
 function getAndDisplayPlayerNames(selectedWeek, selectedPosition, playerNamesFilter = null) {
     getPlayerNames(selectedWeek).then(playerData => {
         let filteredPlayerData = playerData;
@@ -19,7 +21,6 @@ function filterButtonEventListener() {
     const positionSelect = document.getElementById('filter-by-position');
     const selectedWeek = weekSelect.value;
     const selectedPosition = positionSelect.value;
-    console.log(searchedPlayers)
 
     if (searchedPlayers.length === 0) {
         getAndDisplayPlayerNames(selectedWeek, selectedPosition);
@@ -34,9 +35,9 @@ function submitSearchEventListener(event) {
     const searchInput = document.getElementById("search-player-input");
     const playerName = searchInput.value;
     const loadingGif = document.getElementById('loading-gif');
-
+    
     getPlayerNames("total").then((playerData) => {
-        let searchedPlayers = searchPlayerByName(playerData, playerName);
+        searchedPlayers = searchPlayerByName(playerData, playerName);
         displayPlayerStats(searchedPlayers);
     });
     searchInput.value = playerName;
@@ -93,7 +94,6 @@ function playerModal(player) {
     modal.classList.add('player-modal');
     const modalContent = modal.querySelector(".modal-content");
     let categoryHTML = ''
-    // console.log(player.team)
     const teamLogoPath = `imgs/${player.team}.png`;
     
     const topPlayerPositionData = topPlayerWeeklyData.map((weekData) => {

@@ -1,8 +1,5 @@
 import { playerModal } from '../index.js';
 
-//array to store searched players
-var searchedPlayers = [];
-
 var allSeasonData = []
 
 export var topPlayerWeeklyData = [];
@@ -155,7 +152,6 @@ function sortAndFilterByPosition(playerData, position) {
 }
 
 const exports = {
-    searchedPlayers,
     topPlayerWeeklyData,
     searchPlayerByName,
     getPlayerNames,
