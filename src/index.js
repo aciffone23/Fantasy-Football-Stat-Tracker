@@ -46,11 +46,16 @@ function submitSearchEventListener(event) {
 
 function resetSearchEventListener() {
     const searchInput = document.getElementById("search-player-input");
+    const weekSelect = document.getElementById('filter-by-week');
+    const positionSelect = document.getElementById('filter-by-position');
     searchInput.value = '';
     searchedPlayers = []
+    
     getPlayerNames("total").then((playerData) => {
         displayPlayerStats(playerData);
     });
+    weekSelect.selectedIndex = 0;
+    positionSelect.selectedIndex = 0;
 }
 
 function showModalInfo() {
