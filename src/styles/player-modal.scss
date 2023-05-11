@@ -12,7 +12,7 @@
 }
 
 .modal-stats-table th {
-    background-color: white;
+    background-color: #eaeaea;
     border: 1px solid #d3d3d3;
     border-bottom: none;
     font-family: "Yahoo Sans Bold", serif;
@@ -43,25 +43,32 @@
     font-weight: bold;
 }
 
+.modal-player-info h1 {
+    // font-family: "LuloCleanW01-OneBold";
+    font-family: "Museo Sans 100", serif;    
+    font-size: 40px;
+    padding: 0px;
+}
 .modal-player-info span {
     margin-right: 5px;
     margin-bottom: 0;
     font-family: "Museo Sans 100", serif;    
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .modal-player-info div {
     margin-right: 5px;
     margin-bottom: 0;
-    font-family: "Yahoo Sans Bold", serif;
+    font-family: "Trajan Pro", serif;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .season-stats-heading {
     text-align: center;
-    text-decoration: underline;
     margin-bottom: 10px;
     font-size: 20px;
-    font-family: "Yahoo Sans Bold", serif;
+    font-family: "Museo Sans 100", serif;    
 }
 
 .tooltip {

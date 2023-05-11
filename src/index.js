@@ -92,6 +92,7 @@ function playerModal(player) {
     const modalContent = modal.querySelector(".modal-content");
     debugger
     let categoryHTML = ''
+    console.log(player.team)
     
     const topPlayerPositionData = topPlayerWeeklyData.map((weekData) => {
       return {
@@ -164,13 +165,11 @@ function playerModal(player) {
     <span class="close">&times;</span>
     <div class="modal-player-info">
         <div>
-            <strong>Player Name:</strong><span> ${player.player_name}</span>
+            <h1>${player.player_name}</h1>
             <br>
             <strong>Position:</strong> <span>${player.position}</span>
             <br>
             <strong>Fantasy Points:</strong> <span>${player.fantasy_points.ppr.toFixed(2)}</span>
-        </div>
-        <div>
         </div>
     </div>
     <h2 class="season-stats-heading">Season Stats</h2>

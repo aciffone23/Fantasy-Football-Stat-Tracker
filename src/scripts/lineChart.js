@@ -108,7 +108,7 @@ export function lineChart(data, topPlayerData) {
             .style('opacity', 1.4);
         tooltip.html(`Week: ${d.week}<br/>Pts: ${d.value}`)
             .style('left', `${x + margin.left}px`)
-            .style('top', `${y + margin.top + 100}px`);
+            .style('top', `${y + margin.top + 250}px`);
     });
 
     circles.on('mouseout', (d) => {
@@ -127,7 +127,7 @@ export function lineChart(data, topPlayerData) {
             .style('opacity', .9);
         tooltip.html(`Week: ${d.week}<br/>Pts: ${d.value}`)
             .style('left', `${x + margin.left}px`)
-            .style('top', `${y + margin.top + 100}px`); 
+            .style('top', `${y + margin.top + 250}px`); 
     });
 
     topPlayerCircles.on('mouseout', (d) => {
