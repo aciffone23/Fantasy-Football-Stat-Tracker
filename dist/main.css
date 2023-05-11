@@ -1,21 +1,13 @@
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
-@import url(https://db.onlinewebfonts.com/c/b11f35f77210c651367969365f87af24?family=Trajan+Pro);
+@import url(https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;1,200&display=swap);
 /*!*****************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss (1) ***!
   \*****************************************************************************************************************************************/
-@import url(https://db.onlinewebfonts.com/c/3b12f78c783e678acc1f0fefe8e46380?family=Museo+Sans+100);
+@import url(https://fonts.googleapis.com/css2?family=PT+Serif&family=Source+Sans+Pro:ital,wght@0,400;1,200&display=swap);
 /*!*****************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss (2) ***!
-  \*****************************************************************************************************************************************/
-@import url(https://db.onlinewebfonts.com/c/39a2c7f346d5cfae7045aeb2fb50d9ad?family=LuloCleanW01-OneBold);
-/*!*****************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss (3) ***!
-  \*****************************************************************************************************************************************/
-@import url(https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;1,200&display=swap);
-/*!*****************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss (4) ***!
   \*****************************************************************************************************************************************/
 .header {
   display: flex;
@@ -28,7 +20,7 @@
 
 .header h1 {
   margin-top: 15px;
-  font-family: "Trajan Pro", serif;
+  font-family: "PT Serif", serif;
   font-size: 45px;
   color: white;
 }
@@ -189,8 +181,7 @@ nav {
   background-color: #eaeaea;
   border-bottom: none;
   color: black;
-  font-size: 12px;
-  font-family: "LuloCleanW01-OneBold";
+  font-size: 16px;
   font-weight: bold;
 }
 
@@ -204,6 +195,7 @@ nav {
 
 .player-stats-table tr {
   font-family: "Source Sans Pro", sans-serif;
+  font-size: 14px;
 }
 
 .player-stats-table tr:last-child td,
@@ -239,8 +231,7 @@ nav {
   background-color: #eaeaea;
   border: 1px solid #d3d3d3;
   border-bottom: none;
-  font-family: "LuloCleanW01-OneBold";
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .modal-stats-table tr:hover {
@@ -251,7 +242,7 @@ nav {
   border-bottom: 1px solid #eaeaea;
   background-color: white;
   font-family: "Source Sans Pro", sans-serif;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .modal-stats-table tr:last-child td,
@@ -270,7 +261,7 @@ nav {
 }
 
 .modal-player-info h1 {
-  font-family: "Museo Sans 100", serif;
+  font-family: "PT Serif", serif;
   font-size: 40px;
   padding: 0px;
 }
@@ -278,14 +269,12 @@ nav {
 .modal-player-info span {
   margin-right: 5px;
   margin-bottom: 0;
-  font-family: "Museo Sans 100", serif;
   font-size: 15px;
 }
 
 .modal-player-info div {
   margin-right: 5px;
   margin-bottom: 0;
-  font-family: "Trajan Pro", serif;
   font-size: 18px;
   font-weight: bold;
 }
@@ -294,7 +283,6 @@ nav {
   text-align: center;
   margin-bottom: 10px;
   font-size: 20px;
-  font-family: "Museo Sans 100", serif;
 }
 
 .tooltip {
@@ -309,7 +297,6 @@ nav {
   border: 0px;
   border-radius: 8px;
   pointer-events: none;
-  font-family: "Museo Sans 100", serif;
   font-size: 15px;
 }
 
@@ -399,9 +386,9 @@ nav {
   font-family: "Source Sans Pro", sans-serif;
 }
 
-.info-modal-content h2 {
-  color: black;
-  font-family: "Source Sans Pro", sans-serif;
+.info-modal-content h1 {
+  font-family: "PT Serif", serif;
+  font-size: 35px;
 }
 
 .best {
@@ -434,4 +421,8 @@ nav {
 
 .bad {
   background-color: rgba(192, 57, 43, 0.67);
+}
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
 }
