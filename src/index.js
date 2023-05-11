@@ -91,7 +91,8 @@ function playerModal(player) {
     modal.classList.add('player-modal');
     const modalContent = modal.querySelector(".modal-content");
     let categoryHTML = ''
-    console.log(player.team)
+    // console.log(player.team)
+    const teamLogoPath = `imgs/${player.team}.png`;
     
     const topPlayerPositionData = topPlayerWeeklyData.map((weekData) => {
       return {
@@ -169,6 +170,9 @@ function playerModal(player) {
             <strong>Position:</strong> <span>${player.position}</span>
             <br>
             <strong>Fantasy Points:</strong> <span>${player.fantasy_points.ppr.toFixed(2)}</span>
+        </div>
+        <div>
+            <img src="${teamLogoPath}" alt="${player.team} Logo">
         </div>
     </div>
     <br>
