@@ -177,6 +177,7 @@ nav {
 
 .player-stats-table th {
   background-color: #eaeaea;
+  font-style: "Source Sans Pro", sans-serif;
   border-bottom: none;
   color: black;
   font-size: 16px;

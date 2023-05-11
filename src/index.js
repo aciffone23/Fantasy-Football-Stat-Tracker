@@ -94,6 +94,8 @@ function playerModal(player) {
     modal.classList.add('player-modal');
     const modalContent = modal.querySelector(".modal-content");
     let categoryHTML = ''
+    // currentName = player.player_name
+    const playerPhoto = `../imgs/playerPhotos/${player.player_name}.jpeg`
     const teamLogoPath = `https://aciffone23.github.io/Performance-Playbook/imgs/${(player.team).toLowerCase()}.png`;
     const topPlayerPositionData = topPlayerWeeklyData.map((weekData) => {
       return {
@@ -101,6 +103,7 @@ function playerModal(player) {
         value: weekData[player.position].value,
       };
     });
+    console.log(player.player_name)
     
     const dataset = player.weekData
     
@@ -165,6 +168,9 @@ function playerModal(player) {
     modalContent.innerHTML = `
     <span class="close">&times;</span>
     <div class="modal-player-info">
+        <div>
+            <img src="${playerPhoto}" alt="${player.player_name} Picture">
+        </div>
         <div>
             <h1>${player.player_name}</h1>
             <br>
