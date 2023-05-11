@@ -5,21 +5,17 @@
 /*!*****************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss (1) ***!
   \*****************************************************************************************************************************************/
-@import url(//db.onlinewebfonts.com/c/557602b15207c6d67bbdda171a4157dd?family=Yahoo+Sans+Bold);
+@import url(//db.onlinewebfonts.com/c/3b12f78c783e678acc1f0fefe8e46380?family=Museo+Sans+100);
 /*!*****************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss (2) ***!
   \*****************************************************************************************************************************************/
-@import url(//db.onlinewebfonts.com/c/3b12f78c783e678acc1f0fefe8e46380?family=Museo+Sans+100);
+@import url(//db.onlinewebfonts.com/c/39a2c7f346d5cfae7045aeb2fb50d9ad?family=LuloCleanW01-OneBold);
 /*!*****************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss (3) ***!
   \*****************************************************************************************************************************************/
-@import url(//db.onlinewebfonts.com/c/39a2c7f346d5cfae7045aeb2fb50d9ad?family=LuloCleanW01-OneBold);
-/*!*****************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss (4) ***!
-  \*****************************************************************************************************************************************/
 @import url(https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;1,200&display=swap);
 /*!*****************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss (5) ***!
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss (4) ***!
   \*****************************************************************************************************************************************/
 .header {
   display: flex;
@@ -204,6 +200,7 @@ nav {
 .modal-stats-table {
   flex: 1;
   min-width: 33%;
+  padding-top: 20px;
 }
 
 .modal-stats-table th,
@@ -296,7 +293,7 @@ nav {
   font-size: 25px;
   color: black;
   padding: 8px 12px 8px 14px;
-  border: 0.5px solid white;
+  border: 0.5px solid black;
   border-radius: 5px;
   background-color: white;
   font-size: 40px;
@@ -306,9 +303,11 @@ nav {
   box-shadow: 0 0 10px grey;
 }
 
-.player-modal .modal-content, #info-modal .modal-content {
+.player-modal .modal-content {
   margin: 0 auto;
-  padding: 20px;
+  padding: 40px;
+  padding-top: 20px;
+  padding-bottom: 25px;
   width: 80%;
   max-width: 850px;
   background-color: white;
@@ -332,10 +331,11 @@ nav {
 }
 
 .modal-content {
+  margin-left: 10px;
   margin: 0 auto;
   padding: 20px;
   width: 90%;
-  max-width: 450px;
+  max-width: 550px;
   background-color: white;
   border-radius: 5px;
   box-shadow: 0px 4px 8px black;
@@ -345,9 +345,9 @@ nav {
 .close {
   position: absolute;
   top: 10px;
-  right: 8px;
+  right: 20px;
   color: grey;
-  font-size: 28px;
+  font-size: 35px;
   font-weight: bold;
   cursor: pointer;
 }
@@ -367,15 +367,47 @@ nav {
   margin-top: 10%;
 }
 
+.info-modal-content {
+  color: grey;
+  padding: 40px;
+  padding-top: 20px;
+  padding-bottom: 25px;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.info-modal-content h2 {
+  color: black;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.best {
+  background-color: green;
+}
+
+.vgood {
+  background-color: green;
+}
+
+.pgood {
+  background-color: green;
+}
+
+.good {
+  background-color: green;
+}
+
+.notgood {
+  background-color: yellow;
+}
+
+.bad {
+  background-color: red;
+}
+
 @font-face {
   font-family: "Trajan Pro";
   src: url("//db.onlinewebfonts.com/t/b11f35f77210c651367969365f87af24.eot");
   src: url("//db.onlinewebfonts.com/t/b11f35f77210c651367969365f87af24.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/b11f35f77210c651367969365f87af24.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/b11f35f77210c651367969365f87af24.woff") format("woff"), url("//db.onlinewebfonts.com/t/b11f35f77210c651367969365f87af24.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/b11f35f77210c651367969365f87af24.svg#Trajan Pro") format("svg");
-}
-@font-face {
-  font-family: "Yahoo Sans Bold";
-  src: url("//db.onlinewebfonts.com/t/557602b15207c6d67bbdda171a4157dd.eot");
-  src: url("//db.onlinewebfonts.com/t/557602b15207c6d67bbdda171a4157dd.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/557602b15207c6d67bbdda171a4157dd.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/557602b15207c6d67bbdda171a4157dd.woff") format("woff"), url("//db.onlinewebfonts.com/t/557602b15207c6d67bbdda171a4157dd.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/557602b15207c6d67bbdda171a4157dd.svg#Yahoo Sans Bold") format("svg");
 }
 @font-face {
   font-family: "Museo Sans 100";

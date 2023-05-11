@@ -2,7 +2,7 @@
     font-size: 25px;
     color: black;
     padding: 8px 12px 8px 14px;
-    border: 0.5px solid white;
+    border: 0.5px solid black;
     border-radius: 5px;
     background-color: white;
     font-size: 40px; 
@@ -12,9 +12,11 @@
     box-shadow: 0 0 10px grey;
 }
 
-.player-modal .modal-content, #info-modal .modal-content {
+.player-modal .modal-content {
     margin: 0 auto;
-    padding: 20px;
+    padding: 40px;
+    padding-top: 20px;
+    padding-bottom: 25px;
     width: 80%;
     max-width: 850px;
     background-color: white;
@@ -38,10 +40,11 @@
 }
 
 .modal-content {
+    margin-left: 10px;
     margin: 0 auto;
     padding: 20px;
     width: 90%;
-    max-width: 450px;
+    max-width: 550px;
     background-color: white;
     border-radius: 5px;
     box-shadow: 0px 4px 8px black;
@@ -51,9 +54,9 @@
 .close {
     position: absolute;
     top: 10px;
-    right: 8px;
+    right: 20px;
     color:  grey;
-    font-size: 28px;
+    font-size: 35px;
     font-weight: bold;
     cursor: pointer;
 }
@@ -72,3 +75,17 @@
 .modal.show .modal-content {
     margin-top: 10%;
 }
+
+.info-modal-content{
+    color: grey;
+    padding: 40px;
+    padding-top: 20px;
+    padding-bottom: 25px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.info-modal-content h2{
+    color:black;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+

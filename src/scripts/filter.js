@@ -109,6 +109,24 @@ function displayPlayerStats(filteredPlayers) {
         row.cells[0].style.cursor = "pointer";
         row.cells[0].addEventListener("click", () => playerModal(allSeasonData.find(f => 
             f.player_name === player.player_name)));
+
+        let currentFantasy = Number(row.cells[2].textContent);
+        if( currentFantasy > 300){
+            row.cells[2].classList.add("best")
+        }else if( currentFantasy > 250 && currentFantasy < 300){
+            row.cells[2].classList.add("vgood")
+        }else if( currentFantasy > 200 && currentFantasy < 250){
+            row.cells[2].classList.add("pgood")
+        }else if( currentFantasy > 150 && currentFantasy < 200){
+            row.cells[2].classList.add("good")
+        }else if( currentFantasy > 100 && currentFantasy < 150){
+            row.cells[2].classList.add("notgood")
+        }else if( currentFantasy > 50 && currentFantasy < 100){
+            row.cells[2].classList.add("bad")
+        }
+        // }else if( currentFantasy < 50 ){
+        //     row.cells[2].classList.add("vbad")
+        // }
     });
     
     const container = document.getElementById('player-stats-container');
@@ -130,7 +148,7 @@ function sortAndFilterByPosition(playerData, position) {
       });
   
     if (position === "All") { 
-      return sortedPlayerData;
+        return sortedPlayerData;
     }
   
     return sortedPlayerData.filter(f => f.position === position);

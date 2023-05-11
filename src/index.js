@@ -55,16 +55,16 @@ function showModalInfo() {
     const modal = document.createElement('div');
     modal.classList.add('modal', 'show');
     modal.innerHTML = `
-        <div class="modal-content">
-            <h2>How to use Performance Playbook</h2>
-            <p>1. Use the search bar to find a player by name.</p>
-            <p>2. Use the filter dropdowns to get a search by week and position.</p>
-            <p>3. Click the Filter button to see the results sorted by fantasy points.</p>
-            <p>4. The results will be displayed below the filter dropdowns.</p>
-            <p>5. The reset button clears the search to reload the data. </p>
-            <p>6. Click on a players name to get a more detailed view of his stats. </p>
-            <p>7. You can click on the legend circles in the Season Stats graph to toggle the stats.</p>
-            <button id="close-modal" class="close">&times;</button>
+        <div class="modal-content info-modal-content">
+            <h2>How to use Performance Playbook?</h2>
+            <p> Use the search bar to find a player by name.</p>
+            <p> Use the filter dropdowns to get a search by week and position.</p>
+            <p> Click the Filter button to see the results sorted by fantasy points.</p>
+            <p> The results will be displayed below the filter dropdowns.</p>
+            <p> The reset button clears the search to reload the data. </p>
+            <p> Click on a players name to get a more detailed view of his stats. </p>
+            <p> You can click on the legend circles in the Season Stats graph to toggle the stats.</p>
+            <span id="close-modal" class="close">&times;</span>
         </div>
     `;
     document.body.appendChild(modal);
@@ -90,7 +90,6 @@ function playerModal(player) {
     const modal = document.getElementById("player-modal");
     modal.classList.add('player-modal');
     const modalContent = modal.querySelector(".modal-content");
-    debugger
     let categoryHTML = ''
     console.log(player.team)
     

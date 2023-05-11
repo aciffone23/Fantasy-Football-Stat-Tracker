@@ -55,7 +55,9 @@ export function lineChart(data, topPlayerData) {
         .append("text")
         .attr("transform", `translate(${width / 2},${height + margin.bottom - 5})`)
         .style("text-anchor", "middle")
-        .style("fill", "black")
+        .style("fill", "grey")
+        .attr("font-family", "Source Sans Pro")
+        .style("color", "grey")
         .text("Week");
         
     const circles = svg
@@ -89,9 +91,9 @@ export function lineChart(data, topPlayerData) {
         .attr("x", 0 - height / 2)
         .attr("dy", "1em")
         .style("text-anchor", "middle")
-        .style("fill", "black")
+        .style("fill", "grey")
+        .attr("font-family", "Source Sans Pro")
         .text("Fantasy Points");
-
     
     const tooltip = d3.select('#line-chart-container')
         .append('div')
@@ -146,6 +148,7 @@ export function lineChart(data, topPlayerData) {
         .data([{color: 'green', name: 'Player'}, {color: 'black', name: 'TopatPOS'}]) 
         .enter()
         .append('g')
+        .style("fill", "grey")
         .attr('class', 'legend')
         .attr('transform', (d, i) => `translate(0,${i * 20})`);
 
