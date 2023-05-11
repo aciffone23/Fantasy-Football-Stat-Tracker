@@ -40,7 +40,7 @@ nav {
   margin-top: 30px;
   margin-bottom: 10px;
   font-family: "Museo Sans 100", serif;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .field {
@@ -154,6 +154,30 @@ nav {
   z-index: 2;
 }
 
+.week-select {
+  text-align: center;
+  border: 1px solid #ccc;
+  width: 115px;
+  height: 30px;
+  border-radius: 3px;
+  overflow: hidden;
+  background-color: #fff;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 16px;
+}
+
+.pos-select {
+  text-align: center;
+  border: 1px solid #ccc;
+  width: 50px;
+  height: 30px;
+  border-radius: 3px;
+  overflow: hidden;
+  background-color: #fff;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 16px;
+}
+
 .player-stats-table th,
 .player-stats-table td {
   padding: 8px;
@@ -171,7 +195,7 @@ nav {
 }
 
 .player-stats-table tr:nth-child(even) {
-  background-color: #45BF55;
+  background-color: #eaeaea;
 }
 
 .player-stats-table tr:hover {
@@ -381,41 +405,25 @@ nav {
 }
 
 .best {
-  background-color: green;
+  background-color: rgba(0, 177, 106, 0.67);
 }
 
 .vgood {
-  background-color: green;
+  background-color: rgba(200, 247, 197, 0.67);
 }
 
 .pgood {
-  background-color: green;
+  background-color: rgba(255, 246, 143, 0.67);
 }
 
 .good {
-  background-color: green;
+  background-color: rgba(252, 214, 112, 0.67);
 }
 
 .notgood {
-  background-color: yellow;
+  background-color: rgba(241, 169, 160, 0.67);
 }
 
 .bad {
-  background-color: red;
-}
-
-@font-face {
-  font-family: "Trajan Pro";
-  src: url("//db.onlinewebfonts.com/t/b11f35f77210c651367969365f87af24.eot");
-  src: url("//db.onlinewebfonts.com/t/b11f35f77210c651367969365f87af24.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/b11f35f77210c651367969365f87af24.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/b11f35f77210c651367969365f87af24.woff") format("woff"), url("//db.onlinewebfonts.com/t/b11f35f77210c651367969365f87af24.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/b11f35f77210c651367969365f87af24.svg#Trajan Pro") format("svg");
-}
-@font-face {
-  font-family: "Museo Sans 100";
-  src: url("//db.onlinewebfonts.com/t/3b12f78c783e678acc1f0fefe8e46380.eot");
-  src: url("//db.onlinewebfonts.com/t/3b12f78c783e678acc1f0fefe8e46380.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/3b12f78c783e678acc1f0fefe8e46380.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/3b12f78c783e678acc1f0fefe8e46380.woff") format("woff"), url("//db.onlinewebfonts.com/t/3b12f78c783e678acc1f0fefe8e46380.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/3b12f78c783e678acc1f0fefe8e46380.svg#Museo Sans 100") format("svg");
-}
-@font-face {
-  font-family: "LuloCleanW01-OneBold";
-  src: url("//db.onlinewebfonts.com/t/39a2c7f346d5cfae7045aeb2fb50d9ad.eot");
-  src: url("//db.onlinewebfonts.com/t/39a2c7f346d5cfae7045aeb2fb50d9ad.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/39a2c7f346d5cfae7045aeb2fb50d9ad.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/39a2c7f346d5cfae7045aeb2fb50d9ad.woff") format("woff"), url("//db.onlinewebfonts.com/t/39a2c7f346d5cfae7045aeb2fb50d9ad.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/39a2c7f346d5cfae7045aeb2fb50d9ad.svg#LuloCleanW01-OneBold") format("svg");
+  background-color: rgba(236, 100, 75, 0.67);
 }

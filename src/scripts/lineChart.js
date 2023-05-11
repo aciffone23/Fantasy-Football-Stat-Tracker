@@ -27,6 +27,11 @@ export function lineChart(data, topPlayerData) {
         .line()
         .x((d) => x(d.week))
         .y((d) => y(d.value));
+
+    svg.append("rect")
+        .attr("width", "120%")
+        .attr("height", "80%")
+        .attr("fill", "#e6e6e8");
     
     svg
         .append("path")
@@ -83,6 +88,16 @@ export function lineChart(data, topPlayerData) {
         .attr('cx', function(d) { return x(d.week) })
         .attr('cy', function(d) { return y(d.value) })
         .attr('r', 5);
+
+        svg.append("text")
+        .text("Season Stats")
+        .attr("font-family", "Source Sans Pro")
+        .attr("text-anchor", "middle")
+        .style("fill", "grey")
+        .attr("transform", `translate(${margin.left + (200)}, ${margin.top / 2})`)
+        .attr("dx", "1em")
+        .attr("dy", "0.5em")
+        .attr("y", -margin.top);
 
     svg
         .append("text")

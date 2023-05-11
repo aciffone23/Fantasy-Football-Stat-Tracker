@@ -21,7 +21,8 @@ nav {
     margin-top: 30px;
     margin-bottom: 10px;
     font-family: "Museo Sans 100", serif;    
-    font-size: 15px;
+    font-size: 16px;
+    // font-weight: bold;
 }
 
 .field {
@@ -134,6 +135,31 @@ nav {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
+}
+
+
+.week-select {
+    text-align: center;
+    border: 1px solid #ccc;
+    width: 115px;
+    height: 30px;
+    border-radius: 3px;
+    overflow: hidden;
+    background-color: #fff;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px;
+}
+
+.pos-select {
+    text-align: center;
+    border: 1px solid #ccc;
+    width: 50px;
+    height: 30px;
+    border-radius: 3px;
+    overflow: hidden;
+    background-color: #fff;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px;
 }
 
 

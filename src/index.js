@@ -77,7 +77,7 @@ function showModalInfo() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    filterButtonEventListener();
+    resetSearchEventListener();
     document.getElementById('filter-button').addEventListener('click', filterButtonEventListener);
     document.getElementById("search-player").addEventListener("submit", submitSearchEventListener);
     document.getElementById("reset-button").addEventListener("click", resetSearchEventListener);
@@ -171,7 +171,7 @@ function playerModal(player) {
             <strong>Fantasy Points:</strong> <span>${player.fantasy_points.ppr.toFixed(2)}</span>
         </div>
     </div>
-    <h2 class="season-stats-heading">Season Stats</h2>
+    <br>
     <div id="line-chart-container"></div>
     <div class="stat-container">
         <table class="modal-stats-table">
