@@ -96,6 +96,7 @@ function playerModal(player) {
     let categoryHTML = ''
 
     const playerPhoto = `https://aciffone23.github.io/Performance-Playbook/imgs/playerPhotos/${(player.player_name)}.jpeg`;
+
     const teamLogoPath = `https://aciffone23.github.io/Performance-Playbook/imgs/teamPhotos/${(player.team).toLowerCase()}.png`;
     const topPlayerPositionData = topPlayerWeeklyData.map((weekData) => {
       return {
@@ -168,7 +169,7 @@ function playerModal(player) {
     <span class="close">&times;</span>
     <div class="modal-player-info">
         <div>
-            <img src="${playerPhoto}" alt="${player.player_name} Picture">
+            <img src="${playerPhoto}" alt="${player.player_name} Picture" class="player-photo">
         </div>
         <div>
             <h1>${player.player_name}</h1>
