@@ -164,7 +164,6 @@ function displayPlayerStats(filteredPlayers) {
         }
 
         let currrentPlayerInts = Number(row.cells[5].textContent);
-        console.log(player.player_name, currrentPlayerInts)
         if( currrentPlayerInts >= 4 && currrentPlayerInts < 6){
             row.cells[5].classList.add("best")
         }else if( currrentPlayerInts >= 6 && currrentPlayerInts < 8){
@@ -184,7 +183,6 @@ function displayPlayerStats(filteredPlayers) {
         }
 
         let currentPlayerRushAtt = Number(row.cells[6].textContent);
-        console.log(player.player_name, currentPlayerRushAtt)
         if( currentPlayerRushAtt >= 300){
             row.cells[6].classList.add("best")
         }else if( currentPlayerRushAtt >= 270 && currentPlayerRushAtt < 300){
@@ -204,7 +202,6 @@ function displayPlayerStats(filteredPlayers) {
         }
 
         let currentPlayerRushingYds = Number(row.cells[7].textContent);
-        console.log(player.player_name, currentPlayerRushingYds)
         if( currentPlayerRushingYds >= 1500){
             row.cells[7].classList.add("best")
         }else if( currentPlayerRushingYds >= 1350 && currentPlayerRushingYds < 1500){
@@ -224,7 +221,6 @@ function displayPlayerStats(filteredPlayers) {
         }
 
         let currentPlayerRushingTds = Number(row.cells[8].textContent);
-        console.log(player.player_name, currentPlayerRushingTds)
         if( currentPlayerRushingTds >= 16){
             row.cells[8].classList.add("best")
         }else if( currentPlayerRushingTds >= 14 && currentPlayerRushingTds < 16){
@@ -244,7 +240,6 @@ function displayPlayerStats(filteredPlayers) {
         }
 
         let currentPlayerRec = Number(row.cells[9].textContent);
-        console.log(player.player_name, currentPlayerRec)
         if( currentPlayerRec >= 125){
             row.cells[9].classList.add("best")
         }else if( currentPlayerRec >= 100 && currentPlayerRec < 125){
@@ -264,7 +259,6 @@ function displayPlayerStats(filteredPlayers) {
         }
 
         let currentPlayerRecYds = Number(row.cells[10].textContent);
-        console.log(player.player_name, currentPlayerRecYds)
         if( currentPlayerRecYds >= 1500){
             row.cells[10].classList.add("best")
         }else if( currentPlayerRecYds >= 1250 && currentPlayerRecYds < 1500){
@@ -284,7 +278,6 @@ function displayPlayerStats(filteredPlayers) {
         }
 
         let currentPlayerRecTds = Number(row.cells[11].textContent);
-        console.log(player.player_name, currentPlayerRecTds)
         if( currentPlayerRecTds >= 11){
             row.cells[11].classList.add("best")
         }else if( currentPlayerRecTds >= 10 && currentPlayerRecTds < 11){
