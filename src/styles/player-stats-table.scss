@@ -37,6 +37,13 @@
     border-bottom: 1px solid #d3d3d3;
 }
 
+.player-stats-container {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    max-width: max-content;
+}
+
 .player-name-cell:hover {
     text-decoration: underline;
     color: blue

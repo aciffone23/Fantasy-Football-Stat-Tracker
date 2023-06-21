@@ -64,22 +64,28 @@ function showModalInfo() {
     modal.innerHTML = `
         <div class="modal-content info-modal-content">
             <h1>Welcome to Performance Playbook</h1>
+            <hr>
             <p> Use the search bar to find a player by name.</p>
             <p> Use the filter dropdowns to get a search by week and position.</p>
             <p> Click the Filter button to see the results sorted by fantasy points.</p>
             <p> The results will be displayed below the filter dropdowns.</p>
             <p> The reset button clears the search to reload the data. </p>
-            <p> Click on a players name to get a more detailed view of his stats. </p>
+            <p> Click on a player's name to get a more detailed view of his stats.</p>
+            <img src="../imgs/names.gif" alt="Static Image" class="static-image">
             <p> You can click on the legend circles in the Season Stats graph to toggle the stats.</p>
+            <img src="../imgs/graph.gif" alt="Static Images" class="static-images">
             <span id="close-modal" class="close">&times;</span>
         </div>
     `;
     document.body.appendChild(modal);
 
+    document.body.classList.add('disable-scroll'); // Disable scrolling on the background
+
     const closeModalBtn = document.getElementById('close-modal');
     closeModalBtn.addEventListener('click', () => {
         modal.classList.remove('show');
         modal.remove();
+        document.body.classList.remove('disable-scroll'); // Re-enable scrolling on the background
     });
 }
 
@@ -94,11 +100,19 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
 function playerModal(player) {
     const modal = document.getElementById("player-modal");
     modal.classList.add('player-modal');
     const modalContent = modal.querySelector(".modal-content");
+    document.body.classList.add("modal-open");
+
     let categoryHTML = ''
+    
+    function closeModal() {
+        modal.style.display = "none";
+      document.body.classList.remove("modal-open");
+    }
 
     const playerPhoto = `https://aciffone23.github.io/Performance-Playbook/imgs/playerPhotos/${(player.player_name)}.jpeg`;
 
@@ -206,11 +220,12 @@ function playerModal(player) {
       modal.style.display = "none";
     };
     
-    window.onclick = function (event) {
-      if (event.target === modal) {
-        modal.style.display = "none";
-      }
-    };
+    closeButton.onclick = closeModal;
+        window.onclick = function (event) {
+            if (event.target === modal) {
+            closeModal();
+            }
+  };
 }
 
 export { playerModal };

@@ -90,3 +90,7 @@
     border-radius: 50%;
     color:  rgba(0, 177, 106, 0.47);
   }
+
+  body.modal-open {
+    overflow: hidden;
+  }

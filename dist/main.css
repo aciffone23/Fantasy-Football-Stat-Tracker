@@ -202,6 +202,7 @@ nav {
   border-bottom: 1px solid #d3d3d3;
 }
 
+
 .player-name-cell:hover {
   text-decoration: underline;
   color: blue;
@@ -305,6 +306,10 @@ nav {
   color: rgba(0, 177, 106, 0.47);
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 #info-modal {
   font-size: 25px;
   color: black;
@@ -394,6 +399,10 @@ nav {
 .info-modal-content h1 {
   font-family: "PT Serif", serif;
   font-size: 35px;
+}
+
+.disable-scroll {
+  overflow: hidden;
 }
 
 .best {
