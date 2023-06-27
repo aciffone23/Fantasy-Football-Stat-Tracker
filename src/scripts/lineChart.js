@@ -165,7 +165,7 @@ export function lineChart(data, topPlayerData) {
         .append('g')
         .style("fill", "grey")
         .attr('class', 'legend')
-        .attr('transform', (d, i) => `translate(0,${i * 20})`);
+        .attr('transform', (d, i) => `translate(0,${i * 20 + 5})`);
 
     legend.append('line')
         .attr('x1', width - 90)
@@ -186,25 +186,37 @@ export function lineChart(data, topPlayerData) {
         d3.selectAll(`.${d.name}`).style('opacity', newOpacity); 
         d.active = isActive;
     })
-    .on('mouseover', (event, d) => {
+    .on('mouseover', function(event, d) {
+        d3.select(event.target).attr('r', 10);
+        let [x, y] = d3.pointer(event);
         tooltip.transition()
-            .duration(200)
-            .style('opacity', .9);
+          .duration(200)
+          .style('opacity', 1.4);
         tooltip.html('Click to toggle')
-            .style('left', `${event.pageX - 300}px`)
-            .style('top', `${event.pageY}px`);
-    })
-    .on('mouseout', () => {
-        tooltip.transition()
-            .duration(500)
-            .style('opacity', 0);
-    });
+          .style('left', `${x + margin.left - 30}px`)
+          .style('top', `${y + margin.top + 250}px`);
+      })      
+      .on('mouseout', function() {
+        d3.select(this).attr('r', 5);
+        tooltip.transition().duration(500).style('opacity', 0);
+      });
+
+    //   d3.select(event.target).attr('r', 10);
+    //     let [x, y] = d3.pointer(event);
+    //     tooltip.transition()
+    //         .duration(200)
+    //         .style('opacity', 1.4);
+    //     tooltip.html(`Week: ${d.week}<br/>Pts: ${d.value}`)
+    //         .style('left', `${x + margin.left}px`)
+    //         .style('top', `${y + margin.top + 250}px`);
+    
     
     legend.append('text')
         .attr('x', width - 60)
         .attr('y', 9)
         .attr('dy', '.35em')
         .style('text-anchor', 'start')
+        .style('font-size', '14px')
         .text(d => d.name);
 }
 
