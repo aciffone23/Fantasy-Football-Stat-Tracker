@@ -71,9 +71,11 @@ function showModalInfo() {
             <p> The results will be displayed below the filter dropdowns.</p>
             <p> The reset button clears the search to reload the data. </p>
             <p> Click on a player's name to get a more detailed view of his stats.</p>
-            <img src="../imgs/names.gif" alt="Static Image" class="static-image">
+            <img src="https://raw.githubusercontent.com/aciffone23/Performance-Playbook/main/imgs/names.gif
+            " alt="Static Image" class="static-image">
             <p> You can click on the legend circles in the Season Stats graph to toggle the stats.</p>
-            <img src="../imgs/graph.gif" alt="Static Images" class="static-images">
+            <img src="https://raw.githubusercontent.com/aciffone23/Performance-Playbook/main/imgs/graph.gif
+            " alt="Static Images" class="static-images">
             <span id="close-modal" class="close">&times;</span>
         </div>
     `;
